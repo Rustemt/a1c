@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<A1fxCrm.Web.Models.CustomerTicket>
 
 @{
-    ViewBag.Title = "Bilgilendirme Mesajları";
+    ViewBag.Title = "Müşteri Görüşme notları";
     Layout = null;
 }
 
@@ -9,41 +9,38 @@
 <div id="page-actions" class="clearfix">
     <div btn-actions="" ng-transclude="" ng-style="BtnActionLeft()" class="btn-toolbar pull-left" style="left: auto;">
         <button class="btn btn-small btn-success ng-scope" data-ng-click="add()">
-            <i class="icon-plus"></i>&nbsp;@Html.ActionLink("Ekle", "Create", new { id = Model.First().CustomerId }) 
+            <i class="icon-plus"></i>&nbsp;@Html.ActionLink("Ekle", "Create", new { id = Model.First().CustomerId })
         </button>
-        
+
 
     </div>
-    
+
 </div>
+Müşteri Temsilci Notları:
 <table class="table table-bordered table-hover">
     <tr>
         <th>Detay</th>
         <th>Tarih-Saat</th>
-        <th>Müşteri Bilgileri</th>
+          <th>
+            Başlık
+        </th>
         <th>M. Temsilcisi Açıklama
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
+      
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
-            <td>@Html.ActionLink("Detay", "Edit", new { id = item.Id })  </td>
-            <td>@Html.DisplayFor(modelItem => item.Customer.CreatedDate)</td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Customer.FirstName) @Html.DisplayFor(modelItem => item.Customer.LastName)
-                <br />
-                @Html.DisplayFor(modelItem => item.Customer.Mobile)   @Html.DisplayFor(modelItem => item.Customer.Phone) @Html.DisplayFor(modelItem => item.Customer.Email)
+            <td>@Html.ActionLink("Not Detay", "Edit", new { id = item.Id })  </td>
+            <td>@Html.DisplayFor(modelItem => item.CreatedDate)</td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Content)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
+           
         </tr>
     }
 

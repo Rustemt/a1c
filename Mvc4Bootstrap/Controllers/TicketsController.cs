@@ -63,6 +63,7 @@ namespace Mvc4Bootstrap.Controllers
         {
             if (ModelState.IsValid)
             {
+                customerticket.CreatedDate = DateTime.Now;
                 db.CustomerTicket.Add(customerticket);
                 db.SaveChanges();
                 return RedirectToAction("Details", "Customer", new { id = customerticket.CustomerId });
@@ -95,12 +96,13 @@ namespace Mvc4Bootstrap.Controllers
         {
             if (ModelState.IsValid)
             {
+                customerticket.CreatedDate = DateTime.Now;
                 db.Entry(customerticket).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Customer", new { id = customerticket.CustomerId });
             }
             ViewBag.CustomerId = new SelectList(db.Customer, "Id", "FirstName", customerticket.CustomerId);
-            return View(customerticket);
+            return RedirectToAction("Details", "Customer", new { id = customerticket.CustomerId });
         }
 
         //

@@ -60,4 +60,3 @@ C:\Users\rturkyilmaz\git\a1c\A1fxCrm.Web.Framework\bin\Debug\System.Web.WebPages
 C:\Users\rturkyilmaz\git\a1c\A1fxCrm.Web.Framework\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\rturkyilmaz\git\a1c\A1fxCrm.Web.Framework\obj\Debug\A1fxCrm.Web.Framework.dll
 C:\Users\rturkyilmaz\git\a1c\A1fxCrm.Web.Framework\obj\Debug\A1fxCrm.Web.Framework.pdb
-C:\Users\rturkyilmaz\git\a1c\A1fxCrm.Web.Framework\obj\Debug\A1fxCrm.Web.Framework.csprojResolveAssemblyReference.cache
