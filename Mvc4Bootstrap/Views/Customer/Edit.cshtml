@@ -11,14 +11,14 @@
     <li class="active">Müşteri Düzenle</li>
 </ul>
 @section sidebar {
-    <div class="bs-sidebar hidden-print affix" role="complementary">
+    <div class="bs-sidebar hidden-print" role="complementary">
         <ul class="nav nav-list">
-               <li class="nav-header">@Html.ActionLink("Anasayfa","Index","Home")</li>
-            <li><a href="#">@Html.ActionLink("Müşteriler","Index","customer")</li>
+            <li class="nav-header">@Html.ActionLink("Anasayfa", "Index", "Home")</li>
+            <li><a href="#">@Html.ActionLink("Müşteriler", "Index", "customer")</li>
             <li><a href="#">Raporlar</a></li>
             <li class="nav-header">Yönetim</li>
-            <li><a href="#">@Html.ActionLink("Kullanıcılar","Index","User")</li>
-            <li><a href="#">@Html.ActionLink("Yetkiler","Index","User")</a></li>
+            <li><a href="#">@Html.ActionLink("Kullanıcılar", "Index", "User")</li>
+            <li><a href="#">@Html.ActionLink("Yetkiler", "Index", "User")</a></li>
             <li class="divider"></li>
 
         </ul>
@@ -26,108 +26,81 @@
     </div>
 
 }
+<table id="newtable" class="table table-bordered">
 
-@using (Html.BeginForm()) {
+    <tbody>
+ 
+@using (Html.BeginForm("Edit", "Customer", FormMethod.Post))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
-       
-        @Html.HiddenFor(model => model.Id)
+    
+    @Html.HiddenFor(model => model.Id)
+      <tr>
+            <td>  Adı: </td>
+            <td>  @Html.EditorFor(model => model.FirstName)
+        @Html.ValidationMessageFor(model => model.FirstName)</td>
+            <td>  Soyadı:</td>
+            <td> @Html.EditorFor(model => model.LastName)
+        @Html.ValidationMessageFor(model => model.LastName)</td>
+        </tr>
+    
 
-        <div class="editor-label">
-            Adı
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.FirstName)
-            @Html.ValidationMessageFor(model => model.FirstName)
-        </div>
+    
+     <tr>
+     <td>E-Mail :</td>
+     <td> @Html.EditorFor(model => model.Email)
+        @Html.ValidationMessageFor(model => model.Email)</td>
+     <td>  Telefon :</td>
+     <td>  @Html.EditorFor(model => model.Phone)
+        @Html.ValidationMessageFor(model => model.Phone)</td>
+ </tr>
 
-        <div class="editor-label">
-            Soyadı
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.LastName)
-            @Html.ValidationMessageFor(model => model.LastName)
-        </div>
-
-        <div class="editor-label">
-           E-Mail
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Email)
-            @Html.ValidationMessageFor(model => model.Email)
-        </div>
-
-        <div class="editor-label">
-            Telefon
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Phone)
-            @Html.ValidationMessageFor(model => model.Phone)
-        </div>
-
-        <div class="editor-label">
-            Gsm
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Mobile)
-            @Html.ValidationMessageFor(model => model.Mobile)
-        </div>
-
-        <div class="editor-label">
-           Şehir
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.City)
-            @Html.ValidationMessageFor(model => model.City)
-        </div>
-
-        <div class="editor-label">
-            Kaynak
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Source)
-            @Html.ValidationMessageFor(model => model.Source)
-        </div>
-
-        <div class="editor-label">
-            Referans
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Referance)
-            @Html.ValidationMessageFor(model => model.Referance)
-        </div>
-  
-
-        <div class="editor-label">
-            Müşteri Kategori
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("CustomerStatusId", String.Empty)
-            @Html.ValidationMessageFor(model => model.CustomerStatusId)
-        </div>
-
+    
+    <tr>
+     <td> Gsm:</td>
+     <td>  @Html.EditorFor(model => model.Mobile)
+        @Html.ValidationMessageFor(model => model.Mobile)</td>
+     <td>  Şehir :</td>
+     <td> @Html.EditorFor(model => model.City)
+        @Html.ValidationMessageFor(model => model.City)</td>
+ </tr>
  
-        <div class="editor-label">
-            Kullanıcı
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("UserId", String.Empty)
-            @Html.ValidationMessageFor(model => model.UserId)
-        </div>
+   <tr>
+     <td> Kaynak : </td>
+     <td>  @Html.EditorFor(model => model.Source)
+        @Html.ValidationMessageFor(model => model.Source)</td>
+     <td> Referans : </td>
+     <td>   @Html.EditorFor(model => model.Referance)
+        @Html.ValidationMessageFor(model => model.Referance)</td>
+ </tr>
+  
+  <tr>
+     <td> Müşteri Kategori :</td>
+     <td>  @Html.DropDownList("CustomerStatusId", String.Empty)
+        @Html.ValidationMessageFor(model => model.CustomerStatusId)</td>
+     <td>  Temsilcisi :</td>
+     <td>  @Html.DropDownList("UserId", String.Empty)
+        @Html.ValidationMessageFor(model => model.UserId)</td>
+ </tr>
+   
+ <tr><td colspan="4">
 
-        <p>
-            <input type="submit" value="Kaydet" />
-        </p>
-    </fieldset>
+      <input type="submit" value="Kaydet"  class="btn btn-primary"/>
+     </td></tr>
+
+    
 }
-
+             
+    </tbody>
+</table>
+@Html.Action("Index", "Tickets", new { id = Model.Id })
 <div>
-    @Html.ActionLink("Back to List", "Index")
+      @Html.ActionLink("Müşteri Listesi", "Index")
 </div>
 
 @section Scripts {
-   <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 }

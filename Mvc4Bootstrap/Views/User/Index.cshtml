@@ -10,14 +10,14 @@
     <li class="active">Kullanıcılar</li>
 </ul>
 @section sidebar {
-    <div class="bs-sidebar hidden-print affix" role="complementary">
+    <div class="bs-sidebar hidden-print" role="complementary">
         <ul class="nav nav-list">
-              <li class="nav-header">@Html.ActionLink("Anasayfa","Index","Home")</li>
-            <li><a href="#">@Html.ActionLink("Müşteriler","Index","customer")</li>
+            <li class="nav-header">@Html.ActionLink("Anasayfa", "Index", "Home")</li>
+            <li><a href="#">@Html.ActionLink("Müşteriler", "Index", "customer")</li>
             <li><a href="#">Raporlar</a></li>
             <li class="nav-header">Yönetim</li>
-            <li><a href="#">@Html.ActionLink("Kullanıcılar","Index","User")</li>
-            <li><a href="#">@Html.ActionLink("Yetkiler","Index","User")</a></li>
+            <li><a href="#">@Html.ActionLink("Kullanıcılar", "Index", "User")</li>
+            <li><a href="#">@Html.ActionLink("Yetkiler", "Index", "User")</a></li>
             <li class="divider"></li>
 
         </ul>
@@ -25,7 +25,6 @@
     </div>
 
 }
-
 
 <div id="page-actions" class="clearfix">
     <div btn-actions="" ng-transclude="" ng-style="BtnActionLeft()" class="btn-toolbar pull-left" style="left: auto;">

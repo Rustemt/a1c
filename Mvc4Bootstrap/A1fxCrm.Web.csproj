@@ -145,6 +145,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\HtmlPrivilegedHelper.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\City.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
@@ -2205,6 +2206,7 @@
     <Content Include="Views\Status\StatusList.cshtml" />
     <Content Include="Views\Shared\_CustomerDetails.cshtml" />
     <Content Include="Views\Shared\Partial1.cshtml" />
+    <Content Include="Views\Shared\_RightMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

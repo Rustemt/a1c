@@ -9,22 +9,7 @@
     <li><a href="#">Anasayfa</a> <span class="divider">/</span></li>
     <li class="active">Bilgilendirme Mesajları</li>
 </ul>
-@section sidebar {
-    <div class="bs-sidebar hidden-print affix" role="complementary">
-        <ul class="nav nav-list">
-            <li class="nav-header">@Html.ActionLink("Anasayfa", "Index", "Home")</li>
-            <li><a href="#">@Html.ActionLink("Müşteriler", "Index", "customer")</li>
-            <li><a href="#">Raporlar</a></li>
-            <li class="nav-header">Yönetim</li>
-            <li><a href="#">@Html.ActionLink("Kullanıcılar", "Index", "User")</li>
-            <li><a href="#">@Html.ActionLink("Yetkiler", "Index", "User")</a></li>
-            <li class="divider"></li>
-
-        </ul>
-
-    </div>
-
-}
+@Html.Partial("_RightMenu")
 
 @Html.Partial("_CustomerDetails", Model)
 

@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using A1fxCrm.Web.Models;
 using PagedList;
+using System.Security.Principal;
 
 namespace Mvc4Bootstrap.Controllers
 {
@@ -19,6 +20,8 @@ namespace Mvc4Bootstrap.Controllers
 
         public ActionResult Index(string search, int page = 1, int uid = 0, int cid = 0)
         {
+           
+
             int pageSize = 3;
             int pageNumber = page;
             var customer = db.Customer.Include(c => c.CustomerStatus).Include(c => c.User);
