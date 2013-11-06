@@ -39,7 +39,7 @@ namespace Mvc4Bootstrap.Controllers
 					}
 					else
 					{
-						return RedirectToAction("Index", "Customer");
+						return RedirectToAction("Index", "Home");
 					}
 				}
 				else
