@@ -19,7 +19,7 @@ namespace Mvc4Bootstrap.Controllers
         public ActionResult Index(int id)
         {
 
-            var customerticket = db.CustomerTicket.Include(c => c.Customer).Where(r => r.CustomerId == id).OrderByDescending(r=>r.CreatedDate);
+            var customerticket = db.CustomerTicket.Include(c => c.Customer).Where(r => r.CustomerId == id);
 
             if (customerticket.Count() < 1)
             {

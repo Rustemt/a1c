@@ -96,7 +96,7 @@ namespace Mvc4Bootstrap.Controllers
                 return HttpNotFound();
             }
             ViewBag.CustomerStatusId = new SelectList(db.CustomerStatus, "Id", "Name", customer.CustomerStatusId);
-            ViewBag.UserId = new SelectList(db.User, "Id", "Email", customer.UserId);
+            ViewBag.UserId = new SelectList(db.User, "Id", "ConfirmationToken", customer.UserId);
             return View(customer);
         }
 
@@ -120,7 +120,6 @@ namespace Mvc4Bootstrap.Controllers
                 _customer.Referance = customer.Referance;
                 _customer.Source = customer.Source;
                 _customer.UserId = customer.UserId;
-                _customer.CustomerStatusId = customer.CustomerStatusId;
                 _customer.UpdatedDate = DateTime.Now;
                 _customer.UpdateUserId = _user.Id;
                 db.Entry(_customer).State = System.Data.Entity.EntityState.Modified;

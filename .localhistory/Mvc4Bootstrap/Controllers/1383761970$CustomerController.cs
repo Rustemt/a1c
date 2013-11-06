@@ -120,7 +120,6 @@ namespace Mvc4Bootstrap.Controllers
                 _customer.Referance = customer.Referance;
                 _customer.Source = customer.Source;
                 _customer.UserId = customer.UserId;
-                _customer.CustomerStatusId = customer.CustomerStatusId;
                 _customer.UpdatedDate = DateTime.Now;
                 _customer.UpdateUserId = _user.Id;
                 db.Entry(_customer).State = System.Data.Entity.EntityState.Modified;
