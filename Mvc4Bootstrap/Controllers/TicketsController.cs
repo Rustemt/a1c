@@ -66,11 +66,11 @@ namespace Mvc4Bootstrap.Controllers
                 customerticket.CreatedDate = DateTime.Now;
                 db.CustomerTicket.Add(customerticket);
                 db.SaveChanges();
-                return RedirectToAction("Details", "Customer", new { id = customerticket.CustomerId });
+                return RedirectToAction("Edits", "Customer", new { id = customerticket.CustomerId });
             }
 
             ViewBag.CustomerId = new SelectList(db.Customer, "Id", "FirstName", customerticket.CustomerId);
-            return RedirectToAction("Details", "Customer", new { id = customerticket.CustomerId });
+            return RedirectToAction("Edits", "Customer", new { id = customerticket.CustomerId });
         }
 
         //
@@ -99,10 +99,10 @@ namespace Mvc4Bootstrap.Controllers
                 customerticket.CreatedDate = DateTime.Now;
                 db.Entry(customerticket).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Details", "Customer", new { id = customerticket.CustomerId });
+                return RedirectToAction("Edits", "Customer", new { id = customerticket.CustomerId });
             }
             ViewBag.CustomerId = new SelectList(db.Customer, "Id", "FirstName", customerticket.CustomerId);
-            return RedirectToAction("Details", "Customer", new { id = customerticket.CustomerId });
+            return RedirectToAction("Edits", "Customer", new { id = customerticket.CustomerId });
         }
 
         //
