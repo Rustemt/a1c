@@ -1,0 +1,55 @@
+﻿@model MvcApplication1.Models.PermissionItem
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>PermissionItem</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DisplayName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DisplayName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AreaName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AreaName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Group)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Group)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RequiredAdministrator)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequiredAdministrator)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

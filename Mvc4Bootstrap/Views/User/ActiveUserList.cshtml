@@ -1,0 +1,16 @@
+﻿@model List<A1fxCrm.Web.Models.User>
+@{
+ 
+    Layout = null;
+}
+
+
+<ul class="dropdown-menu">
+      <li><a tabindex="-1" href="/customer/index/?search=&amp;page=1&amp;uid=-1&amp;cid=-1">Hepsi</a></li>
+    @foreach (var item in Model)
+    {
+        <li><a tabindex="-1" href="/customer/index/?search=&page=1&uid=@item.Id">@item.FullName</a></li>
+                          
+    }
+</ul>
+

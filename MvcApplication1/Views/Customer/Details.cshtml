@@ -1,0 +1,121 @@
+﻿@model MvcApplication1.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Customer</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Phone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Mobile)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Mobile)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.City)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.City)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Source)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Source)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Referance)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Referance)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CreatedDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UpdatedDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UpdatedDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CreateUserId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreateUserId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UpdateUserId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UpdateUserId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CustomerStatus.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CustomerStatus.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CustomerTicket.Content)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CustomerTicket.Content)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.User.ConfirmationToken)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.ConfirmationToken)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

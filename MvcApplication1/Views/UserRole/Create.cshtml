@@ -1,0 +1,69 @@
+﻿@model MvcApplication1.Models.PermissionItem
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PermissionItem</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DisplayName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DisplayName)
+            @Html.ValidationMessageFor(model => model.DisplayName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AreaName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AreaName)
+            @Html.ValidationMessageFor(model => model.AreaName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Group)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Group)
+            @Html.ValidationMessageFor(model => model.Group)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RequiredAdministrator)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RequiredAdministrator)
+            @Html.ValidationMessageFor(model => model.RequiredAdministrator)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

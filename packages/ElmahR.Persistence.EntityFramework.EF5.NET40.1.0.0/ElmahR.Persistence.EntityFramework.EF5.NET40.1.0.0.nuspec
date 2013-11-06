@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>ElmahR.Persistence.EntityFramework.EF5.NET40</id>
+    <version>1.0.0</version>
+    <title>ElmahR.Persistence.EntityFramework.EF5.NET40</title>
+    <authors>Wasp</authors>
+    <owners>Wasp</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://bitbucket.org/wasp/elmahr</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>ElmahR persistence module for EntityFramework 5 (NET40)</description>
+    <releaseNotes>Entity Framework persistor implementation</releaseNotes>
+    <copyright>Copyright 2012-13 Roberto Vespa</copyright>
+    <language />
+    <tags>ElmahR ELMAH SignalR error logging unhandled exception persistence EntityFramework</tags>
+    <dependencies>
+      <dependency id="ElmahR.Core" />
+      <dependency id="EntityFramework" version="5.0.0" />
+    </dependencies>
+  </metadata>
+</package>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="17dfa363c4c14320a714478a50cecbef" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="A1fxCrmModel.City" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="A1fxCrmModel.CustomerStatus" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="A1fxCrmModel.PermissionItem" Width="1.5" PointX="1.5" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="A1fxCrmModel.Role" Width="1.5" PointX="1.5" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="A1fxCrmModel.User" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <AssociationConnector Association="A1fxCrmModel.RolePermissionItem" ManuallyRouted="false" />
+        <AssociationConnector Association="A1fxCrmModel.UserRole" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="A1fxCrmModel.Customer" Width="1.5" PointX="9.5845567144381612" PointY="19.871472651079053" />
+        <EntityTypeShape EntityType="A1fxCrmModel.CustomerTicket" Width="1.5" PointX="11.654156500312572" PointY="3.9375531244732223" />
+        <AssociationConnector Association="A1fxCrmModel.FK_Customer_CustomerStatus" />
+        <AssociationConnector Association="A1fxCrmModel.FK_Customer_User" />
+        <AssociationConnector Association="A1fxCrmModel.FK_CustomerTicket_CustomerTicket" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

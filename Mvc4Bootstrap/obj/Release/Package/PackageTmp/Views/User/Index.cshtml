@@ -1,0 +1,121 @@
+﻿@model IEnumerable<A1fxCrm.Web.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a href="#">Anasayfa</a> <span class="divider">/</span></li>
+    <li class="active">Kullanıcılar</li>
+</ul>
+@section sidebar {
+    <div class="bs-sidebar hidden-print affix" role="complementary">
+        <ul class="nav nav-list">
+            <li class="nav-header">Anasayfa</li>
+            <li><a href="#">Müşteriler</a></li>
+            <li><a href="#">Raporlar</a></li>
+            <li class="nav-header">Yönetim</li>
+            <li><a href="#">Kullanıclar</a></li>
+            <li><a href="#">Yetkiler</a></li>
+            <li class="divider"></li>
+
+        </ul>
+
+    </div>
+
+}
+
+
+<div id="page-actions" class="clearfix">
+    <div btn-actions="" ng-transclude="" ng-style="BtnActionLeft()" class="btn-toolbar pull-left" style="left: auto;">
+        <button class="btn btn-small btn-success ng-scope" data-ng-click="add()">
+            <i class="icon-plus"></i>&nbsp;Ekle
+        </button>
+        <button class="btn btn-small ng-scope" data-ng-click="Refresh()">
+            <i class="icon-refresh"></i>&nbsp;Yenile
+        </button>
+        <div class="btn-group ng-scope ng-hide" data-ng-show="selectedItems.length &gt; 0">
+            <button class="btn btn-small" data-ng-click="edit(selectedItems[0])" data-ng-disabled="selectedItems.length &gt; 1">
+                <i class="icon-edit"></i>&nbsp;Düzenle
+            </button>
+            <button class="btn btn-small ng-isolate-scope ng-scope" co-delete-button="" confirm-message="You really want to delete this entity?" delete-action="delete()">
+                <i class="icon-remove"></i>&nbsp;Sil
+            </button>
+        </div>
+
+    </div>
+    <div class="btn-toolbar pull-right">
+        <div class="btn-group">
+            <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
+                <i class="icon-filter"></i>&nbsp;Filtre
+        <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <!-- ngRepeat: filter in definitionFilters -->
+
+                <li><a tabindex="-1" href="#">Ümmet Zivali</a></li>
+                <li><a tabindex="-1" href="#">Rüstem Türkyılmaz</a></li>
+
+            </ul>
+        </div>
+
+        <div class="input-append" style="margin: 0px 0px 0px 10px;">
+
+            <form style="margin: 0px">
+                <input type="text" style="line-height: 16px; font-size: 13px;">
+
+                <button type="submit" class="btn">Ara</button>
+            </form>
+        </div>
+    </div>
+</div>
+<table class="table table-bordered table-hover">
+    <tr>
+
+        <th>Detay</th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAdministrator)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink("Düzenle", "Edit", new { id = item.Id }) </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAdministrator)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+
+
+        </tr>
+    }
+
+</table>
