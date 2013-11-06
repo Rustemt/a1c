@@ -81,6 +81,7 @@
     <Property Name="Content" Type="text" />
     <Property Name="Title" Type="nvarchar" MaxLength="500" />
     <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="PermissionItem">
     <Key>
@@ -135,21 +136,21 @@
     <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="255" />
     <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="255" />
     <Property Name="IsApproved" Type="bit" />
-    <Property Name="LastActivityDate" Type="datetime" />
-    <Property Name="LastLoginDate" Type="datetime" />
-    <Property Name="LastPasswordChangedDate" Type="datetime" />
-    <Property Name="CreationDate" Type="datetime" />
-    <Property Name="IsOnLine" Type="bit" />
-    <Property Name="IsLockedOut" Type="bit" />
-    <Property Name="LastLockoutDate" Type="datetime" />
-    <Property Name="FailedPasswordAttemptCount" Type="int" />
-    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" />
-    <Property Name="FailedPasswordAnswerAttemptCount" Type="int" />
-    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" />
-    <Property Name="IsSubscriber" Type="bit" />
-    <Property Name="CreatedDate" Type="datetime" />
-    <Property Name="IsAnonymous" Type="bit" />
-    <Property Name="PasswordFormat" Type="int" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="IsOnLine" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="IsSubscriber" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="PasswordFormat" Type="int" Nullable="false" />
     <Property Name="TimeZone" Type="int" />
     <Property Name="FullName" Type="nvarchar" MaxLength="50" />
   </EntityType>

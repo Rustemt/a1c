@@ -18,8 +18,7 @@ namespace A1fxCrm.Web.Models
         public string Content { get; set; }
         public string Title { get; set; }
         public int CustomerId { get; set; }
-        public System.DateTime CreatedDate { get; set; }
-    
+        public Nullable<System.DateTime> CreatedDate { get; set; }
         public virtual Customer Customer { get; set; }
     }
 }

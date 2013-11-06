@@ -42,21 +42,21 @@ namespace A1fxCrm.Web.Models
         public string PasswordQuestion { get; set; }
         public string PasswordAnswer { get; set; }
         public Nullable<bool> IsApproved { get; set; }
-        public Nullable<System.DateTime> LastActivityDate { get; set; }
-        public Nullable<System.DateTime> LastLoginDate { get; set; }
-        public Nullable<System.DateTime> LastPasswordChangedDate { get; set; }
-        public Nullable<System.DateTime> CreationDate { get; set; }
-        public Nullable<bool> IsOnLine { get; set; }
-        public Nullable<bool> IsLockedOut { get; set; }
-        public Nullable<System.DateTime> LastLockoutDate { get; set; }
-        public Nullable<int> FailedPasswordAttemptCount { get; set; }
-        public Nullable<System.DateTime> FailedPasswordAttemptWindowStart { get; set; }
-        public Nullable<int> FailedPasswordAnswerAttemptCount { get; set; }
-        public Nullable<System.DateTime> FailedPasswordAnswerAttemptWindowStart { get; set; }
-        public Nullable<bool> IsSubscriber { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<bool> IsAnonymous { get; set; }
-        public Nullable<int> PasswordFormat { get; set; }
+        public System.DateTime LastActivityDate { get; set; }
+        public System.DateTime LastLoginDate { get; set; }
+        public System.DateTime LastPasswordChangedDate { get; set; }
+        public System.DateTime CreationDate { get; set; }
+        public bool IsOnLine { get; set; }
+        public bool IsLockedOut { get; set; }
+        public System.DateTime LastLockoutDate { get; set; }
+        public int FailedPasswordAttemptCount { get; set; }
+        public System.DateTime FailedPasswordAttemptWindowStart { get; set; }
+        public int FailedPasswordAnswerAttemptCount { get; set; }
+        public System.DateTime FailedPasswordAnswerAttemptWindowStart { get; set; }
+        public bool IsSubscriber { get; set; }
+        public System.DateTime CreatedDate { get; set; }
+        public bool IsAnonymous { get; set; }
+        public int PasswordFormat { get; set; }
         public Nullable<int> TimeZone { get; set; }
         public string FullName { get; set; }
     

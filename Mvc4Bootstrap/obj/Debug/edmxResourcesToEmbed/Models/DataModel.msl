@@ -70,6 +70,7 @@
     <EntitySetMapping Name="CustomerTicket">
       <EntityTypeMapping TypeName="A1fxCrmModel.CustomerTicket">
         <MappingFragment StoreEntitySet="CustomerTicket">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Content" ColumnName="Content" />

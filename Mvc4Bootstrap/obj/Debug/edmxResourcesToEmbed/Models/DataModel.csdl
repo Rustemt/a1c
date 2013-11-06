@@ -102,6 +102,7 @@
     <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Type="Int32" Name="CustomerId" Nullable="false" />
     <NavigationProperty Name="Customer" Relationship="A1fxCrmModel.FK_CustomerTicket_CustomerTicket" FromRole="CustomerTicket" ToRole="Customer" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="3" />
   </EntityType>
   <Association Name="FK_Customer_CustomerStatus">
     <End Type="A1fxCrmModel.CustomerStatus" Role="CustomerStatus" Multiplicity="1" />
@@ -153,21 +154,21 @@
     <Property Type="String" Name="PasswordQuestion" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="PasswordAnswer" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Type="Boolean" Name="IsApproved" />
-    <Property Type="DateTime" Name="LastActivityDate" Precision="3" />
-    <Property Type="DateTime" Name="LastLoginDate" Precision="3" />
-    <Property Type="DateTime" Name="LastPasswordChangedDate" Precision="3" />
-    <Property Type="DateTime" Name="CreationDate" Precision="3" />
-    <Property Type="Boolean" Name="IsOnLine" />
-    <Property Type="Boolean" Name="IsLockedOut" />
-    <Property Type="DateTime" Name="LastLockoutDate" Precision="3" />
-    <Property Type="Int32" Name="FailedPasswordAttemptCount" />
-    <Property Type="DateTime" Name="FailedPasswordAttemptWindowStart" Precision="3" />
-    <Property Type="Int32" Name="FailedPasswordAnswerAttemptCount" />
-    <Property Type="DateTime" Name="FailedPasswordAnswerAttemptWindowStart" Precision="3" />
-    <Property Type="Boolean" Name="IsSubscriber" />
-    <Property Type="DateTime" Name="CreatedDate" Precision="3" />
-    <Property Type="Boolean" Name="IsAnonymous" />
-    <Property Type="Int32" Name="PasswordFormat" />
+    <Property Type="DateTime" Name="LastActivityDate" Precision="3" Nullable="false" />
+    <Property Type="DateTime" Name="LastLoginDate" Precision="3" Nullable="false" />
+    <Property Type="DateTime" Name="LastPasswordChangedDate" Precision="3" Nullable="false" />
+    <Property Type="DateTime" Name="CreationDate" Precision="3" Nullable="false" />
+    <Property Type="Boolean" Name="IsOnLine" Nullable="false" />
+    <Property Type="Boolean" Name="IsLockedOut" Nullable="false" />
+    <Property Type="DateTime" Name="LastLockoutDate" Precision="3" Nullable="false" />
+    <Property Type="Int32" Name="FailedPasswordAttemptCount" Nullable="false" />
+    <Property Type="DateTime" Name="FailedPasswordAttemptWindowStart" Precision="3" Nullable="false" />
+    <Property Type="Int32" Name="FailedPasswordAnswerAttemptCount" Nullable="false" />
+    <Property Type="DateTime" Name="FailedPasswordAnswerAttemptWindowStart" Precision="3" Nullable="false" />
+    <Property Type="Boolean" Name="IsSubscriber" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" Precision="3" Nullable="false" />
+    <Property Type="Boolean" Name="IsAnonymous" Nullable="false" />
+    <Property Type="Int32" Name="PasswordFormat" Nullable="false" />
     <Property Type="Int32" Name="TimeZone" />
     <Property Type="String" Name="FullName" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Customer" Relationship="A1fxCrmModel.FK_Customer_User" FromRole="User" ToRole="Customer" />
