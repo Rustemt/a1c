@@ -7,8 +7,11 @@ using System.Web;
 using System.Web.Mvc;
 using A1fxCrm.Web.Models;
 using PagedList;
+using A1fxCrm.Web.Framework.Security.Attributes;
 namespace Mvc4Bootstrap.Controllers
 {
+    [Authorization(Group = "", Name = "Cust")]
+    [Authorization(Group = "", Name = "CustAdmin")]
     public class TicketsController : Controller
     {
         private A1fxCrmEntities db = new A1fxCrmEntities();

@@ -8,9 +8,12 @@ using System.Web.Mvc;
 using A1fxCrm.Web.Models;
 using PagedList;
 using System.Security.Principal;
+using A1fxCrm.Web.Framework.Security.Attributes;
 
 namespace Mvc4Bootstrap.Controllers
 {
+     [Authorization(Group = "", Name = "Cust")]
+    [Authorization(Group = "", Name = "CustAdmin")]
     public class CustomerController : Controller
     {
         private A1fxCrmEntities db = new A1fxCrmEntities();
@@ -30,6 +33,13 @@ namespace Mvc4Bootstrap.Controllers
 
              if (cid > 0)
                 customer = customer.Where(r => r.CustomerStatusId == cid);
+
+             if (!string.IsNullOrEmpty(search))
+                 customer = customer.Where(r => r.FirstName.Contains(search)
+                                             || r.LastName.Contains(search)
+                                             || r.Referance.Contains(search)
+                                             || r.Source.Contains(search));
+                                                    
 
             customer = customer.OrderByDescending(r => r.CreatedDate);
             var customerPaged = customer.ToPagedList(pageNumber, pageSize);

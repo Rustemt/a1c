@@ -2205,7 +2205,6 @@
     <Content Include="Views\Status\Index.cshtml" />
     <Content Include="Views\Status\StatusList.cshtml" />
     <Content Include="Views\Shared\_CustomerDetails.cshtml" />
-    <Content Include="Views\Shared\Partial1.cshtml" />
     <Content Include="Views\Shared\_RightMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -2239,7 +2238,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>34740</DevelopmentServerPort>
+          <DevelopmentServerPort>10935</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:57434/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
