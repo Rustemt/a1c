@@ -1,21 +1,30 @@
 ﻿@model IEnumerable<A1fxCrm.Web.Models.CustomerTicket>
 
 @{
-    ViewBag.Title = "Müşteri Görüşme notları";
+ 
     Layout = null;
 }
 
 
-<div id="page-actions" class="clearfix">
+@*<div id="page-actions" class="clearfix">
     <div btn-actions="" ng-transclude="" ng-style="BtnActionLeft()" class="btn-toolbar pull-left" style="left: auto;">
         <button class="btn btn-small btn-success ng-scope" data-ng-click="add()">
             <i class="icon-plus"></i>&nbsp;@Html.ActionLink("Yeni Not Ekle", "Create", new { id = Model.First().CustomerId })
         </button>
-
+   
 
     </div>
 
-</div>
+</div>*@
+ <div data-ng-controller="GroupsCtrl">
+     <input type="text" data-ng-model="yourName" placeholder="not ekleyin">
+     <input type="hidden" data-ng-model="id" value="@Model.FirstOrDefault().CustomerId" data-ng-init="id=@Model.FirstOrDefault().CustomerId"/>
+     <button class="btn btn-small btn-success ng-scope" data-ng-click="save()">
+            <i class="icon-plus"></i>
+        </button>
+  
+         
+     </div>
 Müşteri Temsilci Notları:
 <table class="table table-bordered table-hover">
     <tr>

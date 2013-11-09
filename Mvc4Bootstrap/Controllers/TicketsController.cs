@@ -10,13 +10,35 @@ using PagedList;
 using A1fxCrm.Web.Framework.Security.Attributes;
 namespace Mvc4Bootstrap.Controllers
 {
-    [Authorization(Group = "", Name = "Cust")]
-    [Authorization(Group = "", Name = "CustAdmin")]
+    //[Authorization(Group = "", Name = "Cust")]
+    //[Authorization(Group = "", Name = "CustAdmin")]
     public class TicketsController : Controller
     {
         private A1fxCrmEntities db = new A1fxCrmEntities();
 
-        //
+        [AllowAnonymous]
+        public object PostSave(TicketModel loginModel)
+        {
+         
+            CustomerTicket customerticket = new CustomerTicket
+            {
+                CustomerId = Convert.ToInt32(loginModel.id),
+                Content = loginModel.content,
+                CreatedDate = DateTime.Now,
+                Title = "Title"
+            };
+            db.CustomerTicket.Add(customerticket);
+            db.SaveChanges();
+            //if (LoginManager.Login(loginModel.username, loginModel.password, out errorMessage))
+            //{
+            //    return new { Result = true, User = LoginManager.CurrentUser.Transform() };
+            //}
+            //else
+            //{
+            return customerticket;
+            // }
+        }
+ 
         // GET: /Tickets/
 
         public ActionResult Index(int id)
@@ -30,7 +52,7 @@ namespace Mvc4Bootstrap.Controllers
                 ViewBag.Customer = db.Customer.Where(r => r.Id == id).First();
                 return View("CreateP");
             }
-            
+
             return View(customerticket.ToList());
         }
 

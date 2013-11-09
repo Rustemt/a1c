@@ -1,12 +1,13 @@
 ﻿@using System.Web.Optimization
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" ng-app="main">
 <head>
     <meta charset="utf-8" />
     <title>Your Website &bull; @ViewBag.Title</title>
 
     @Styles.Render("~/css")
+
 </head>
 <body>
     <div class="navbar">
@@ -22,17 +23,17 @@
                     <img src="~/Content/images/headerlogo11.png" /></a>
                 @{if (HttpContext.Current.User.Identity.IsAuthenticated)
                   {
-                <ul class="nav">
-                    <li>@Html.ActionLink("Müşteriler", "Index", "Customer")</li>
-                    <li>@Html.ActionLink("Kullanıcılar", "Index", "User")</li>
-                    <li>@Html.ActionLink("Şifre Değiştir", "ChangePassword", "Account")</li>
-                    <li>@Html.ActionLink("Çıkış", "LogOff", "Account")</li>
-                </ul>
+                    <ul class="nav">
+                        <li>@Html.ActionLink("Müşteriler", "Index", "Customer")</li>
+                        <li>@Html.ActionLink("Kullanıcılar", "Index", "User")</li>
+                        <li>@Html.ActionLink("Şifre Değiştir", "ChangePassword", "Account")</li>
+                        <li>@Html.ActionLink("Çıkış", "LogOff", "Account")</li>
+                    </ul>
                   }}
             </div>
         </div>
     </div>
-
+ 
     <div class="container bs-docs-container">
 
         <div class="row-fluid">
@@ -69,5 +70,8 @@
     </div>
     @Scripts.Render("~/js")
     @RenderSection("scripts", required: false)
+        <script type="text/javascript" src="~/Scripts/angular.js"></script>
+    <script type="text/javascript" src="~/Scripts/angular-resource.js"></script>
+    <script type="text/javascript" src="~/Scripts/mainmodule.js"></script>
 </body>
 </html>

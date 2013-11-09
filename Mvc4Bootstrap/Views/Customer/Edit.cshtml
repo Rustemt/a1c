@@ -4,8 +4,6 @@
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
 <ul class="breadcrumb">
     <li><a href="#">Anasayfa</a> <span class="divider">/</span></li>
     <li class="active">Müşteri Düzenle</li>
@@ -97,7 +95,7 @@
 </table>
 @Html.Action("Index", "Tickets", new { id = Model.Id })
 <div>
-      @Html.ActionLink("Müşteri Listesi", "Index")
+      @Html.ActionLink("Geri", "Index")
 </div>
 
 @section Scripts {

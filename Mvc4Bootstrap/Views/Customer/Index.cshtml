@@ -1,24 +1,69 @@
 ﻿@model PagedList.PagedList<A1fxCrm.Web.Models.Customer>
 @using PagedList.Mvc;
- 
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    .status-1 {
+        background-color:aliceblue;
+    }
+
+    .status-2 {
+        background-color: antiquewhite;
+    }
+
+    .status-3 {
+        background-color: lightyellow;
+    }
+
+    .status-4 {
+        background-color: beige;
+    }
+
+    .status-5 {
+        background-color: coral;
+    }
+
+    .status-6 {
+        background-color: lightgoldenrodyellow;
+    }
+
+    .status-7 {
+        background-color: ivory;
+    }
+
+    .status-8 {
+        background-color: whitesmoke;
+    }
+
+    .status-9 {
+        background-color: darkslategray;
+    }
+
+    .status-10 {
+        background-color: lightslategray;
+    }
+
+    .status-11 {
+        background-color: lightskyblue;
+    }
+</style>
 <ul class="breadcrumb">
     <li><a href="#">Anasayfa</a> <span class="divider">/</span></li>
     <li class="active">Müşteriler</li>
 </ul>
 
 @section sidebar {
-    <div class="bs-sidebar hidden-print affix" role="complementary">
+    <div class="bs-sidebar hidden-print" role="complementary">
         <ul class="nav nav-list">
-            <li class="nav-header">@Html.ActionLink("Anasayfa","Index","Home")</li>
-            <li><a href="#">@Html.ActionLink("Müşteriler","Index","customer")</li>
+            <li class="nav-header">@Html.ActionLink("Anasayfa", "Index", "Home")</li>
+            <li><a href="#">@Html.ActionLink("Müşteriler", "Index", "customer")</li>
             <li><a href="#">Raporlar</a></li>
             <li class="nav-header">Yönetim</li>
-            <li><a href="#">@Html.ActionLink("Kullanıcılar","Index","User")</li>
-            <li><a href="#">@Html.ActionLink("Yetkiler","Index","User")</a></li>
+            <li><a href="#">@Html.ActionLink("Kullanıcılar", "Index", "User")</li>
+            <li><a href="#">@Html.ActionLink("Yetkiler", "Index", "User")</a></li>
             <li class="divider"></li>
 
         </ul>
@@ -31,20 +76,21 @@
     </div>
     <div class="btn-toolbar pull-right">
         <div class="btn-group">
-            @{ if(Html.IsAdmin()){
+            @{ if (Html.IsAdmin())
+               {
                 <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
                     <i class="icon-filter"></i>&nbsp;Kullanıcılar
              <span class="caret"></span>
                 </button>
-                @Html.Action("ActiveUserList","User")
-                }}
+                @Html.Action("ActiveUserList", "User")
+               }}
         </div>
         <div class="btn-group">
             <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
                 <i class="icon-filter"></i>&nbsp;Kategoriler
         <span class="caret"></span>
             </button>
-            @Html.Action("StatusList","Status")
+            @Html.Action("StatusList", "Status")
         </div>
 
         <div class="input-append" style="margin: 0px 0px 0px 10px;">
@@ -86,7 +132,7 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        <tr class="status-@item.CustomerStatusId">
             <td>
 
                 <a class="icon-edit" href="/customer/Edit/@item.Id"></a>
@@ -125,7 +171,7 @@
 
 </table>
 <div class="pagination pagination-right">
-    @Html.PagedListPager(Model, page => Url.Action("Index", 
+    @Html.PagedListPager(Model, page => Url.Action("Index",
     new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
 </div>
 
