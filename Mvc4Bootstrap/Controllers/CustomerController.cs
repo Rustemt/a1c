@@ -69,7 +69,7 @@ namespace Mvc4Bootstrap.Controllers
         public ActionResult Create()
         {
             ViewBag.CustomerStatusId = new SelectList(db.CustomerStatus, "Id", "Name");
-            ViewBag.UserId = new SelectList(db.User, "Id", "ConfirmationToken");
+            ViewBag.UserId = new SelectList(db.User, "Id", "Email");
             return View();
         }
 

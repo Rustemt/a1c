@@ -5,6 +5,11 @@
     Layout = "~/Views/Shared/_LayoutBlue.cshtml";
 }
 
+ 
+<ul class="breadcrumb">
+    <li><a href="#">Anasayfa</a> <span class="divider">/</span></li>
+    <li class="active">Kullanıcılar</li>
+</ul>
 
 
 <div id="page-actions" class="clearfix">
@@ -12,9 +17,7 @@
         <button class="btn btn-small btn-success ng-scope" data-ng-click="add()">
             <i class="icon-plus"></i>&nbsp;@Html.ActionLink("Ekle", "Register", "Account")
         </button>
-        <button class="btn btn-small ng-scope" data-ng-click="Refresh()">
-            <i class="icon-refresh"></i>&nbsp;Yenile
-        </button>
+      
 
 
     </div>

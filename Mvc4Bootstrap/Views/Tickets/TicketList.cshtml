@@ -1,32 +1,73 @@
-﻿@model IEnumerable<A1fxCrm.Web.Models.CustomerTicket>
-
+﻿ @model PagedList.PagedList<A1fxCrm.Web.Models.CustomerTicket>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutBlue.cshtml";
 }
- 
- 
-<table class="table table-bordered table-hover" style="margin-top:40px;">
-    <tr><th colspan="3">Temsilci Notları:</th></tr>
-    <tr>
-        <th>Detay</th>
-        <th>Tarih-Saat</th>
-        <th>M. Temsilcisi Açıklama
-        </th>
-      
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@Html.ActionLink("Detay", "Edit", new { id = item.Id })  </td>
-            <td>@Html.DisplayFor(modelItem => item.CreatedDate)</td>
+ <div class="page-title">
+    <div>
+        <h1><i class="icon-file-alt"></i>Bilgilendirme Mesajı</h1>
+        <h4>Müşteri Bilgilendirme Mesajları</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+            @*<div class="box-title">
+                    <h3><i class="icon-table"></i>Müşterilerim</h3>
+                    <div class="box-tool">
+                        <a data-action="collapse" href="#"><i class="icon-chevron-up"></i></a>
+                        <a data-action="close" href="#"><i class="icon-remove"></i></a>
+                    </div>
+                </div>*@
+            <div class="box-content">
            
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-           
-        </tr>
-    }
+          
+                <br>
+                <div class="clearfix"></div>
+                <div class="table-responsive">
+                    <div id="table1_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                        <table class="table table-advance dataTable" id="table2" aria-describedby="tabl2_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label="&amp;nbsp;" style="width: 43px;">&nbsp;</th>
 
-</table>
+                                   <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Tarih: activate to sort column ascending" style="width: 75px;">Tarih - Saat</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Kaynak: activate to sort column ascending" style="width: 86px;">M. Temcilci Açıklaması</th>
+  
+                                </tr>
+                            </thead>
+
+
+                            <tbody role="alert" aria-live="polite" aria-relevant="all">
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="table-flag-blue odd">
+                                        <td class=" sorting_1"><a class="icon-edit" href="/Tickets/Edit/@item.Id">Detay Gör</a></td>
+
+                                        <td >@Html.DisplayFor(modelItem => item.CreatedDate)</td>
+                                        <td  >@Html.DisplayFor(modelItem => item.Content)</td>
+                                        
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                @*<div class="dataTables_info" id="table1_info"></div>*@
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="dataTables_paginate paging_bootstrap">
+                                    @Html.PagedListPager(Model, page => Url.Action("TicketList",
+                                        new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -56,13 +56,16 @@ namespace Mvc4Bootstrap.Controllers
             return View(customerticket.ToList());
         }
 
-        public ActionResult TicketList()
+        public ActionResult TicketList( int page = 1)
         {
+            int pageSize = 15;
+            int pageNumber = page;
+            var customerticket = db.CustomerTicket.Include(c => c.Customer).OrderByDescending(r => r.CreatedDate);
+ 
+            var customerPaged = customerticket.ToPagedList(pageNumber, pageSize);
 
-            var customerticket = db.CustomerTicket.Include(c => c.Customer).OrderByDescending(r=>r.CreatedDate);
 
-           
-            return View(customerticket.ToList());
+            return View(customerPaged);
         }
         //
         // GET: /Tickets/Details/5

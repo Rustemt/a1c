@@ -50,16 +50,24 @@
         background-color: lightskyblue;
     }
 </style>
+
+<div class="page-title">
+    <div>
+        <h1><i class="icon-file-alt"></i>Müşterilerim</h1>
+        <h4>Crm Sistemi Müşteri Listesi</h4>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-12">
         <div class="box">
             @*<div class="box-title">
-                <h3><i class="icon-table"></i>Müşterilerim</h3>
-                <div class="box-tool">
-                    <a data-action="collapse" href="#"><i class="icon-chevron-up"></i></a>
-                    <a data-action="close" href="#"><i class="icon-remove"></i></a>
-                </div>
-            </div>*@
+                    <h3><i class="icon-table"></i>Müşterilerim</h3>
+                    <div class="box-tool">
+                        <a data-action="collapse" href="#"><i class="icon-chevron-up"></i></a>
+                        <a data-action="close" href="#"><i class="icon-remove"></i></a>
+                    </div>
+                </div>*@
             <div class="box-content">
                 <div class="btn-toolbar pull-right clearfix">
                     <div class="btn-group">
@@ -80,7 +88,7 @@
                         @Html.Action("StatusList", "Status")
                     </div>
                     <div class="btn-group">
-                        <a class="btn btn-circle show-tooltip" title="" href="#" data-original-title="Add new record"><i class="icon-plus"></i></a>
+                        <a class="btn btn-circle show-tooltip" title="" href="/customer/create" data-original-title="Yeni Müşteri"><i class="icon-plus"></i></a>
                     </div>
 
                 </div>
@@ -112,7 +120,7 @@
                             <tbody role="alert" aria-live="polite" aria-relevant="all">
                                 @foreach (var item in Model)
                                 {
-                                    <tr class="table-flag-blue odd">
+                                    <tr class="table-flag-blue odd status-@item.CustomerStatusId">
                                         <td class=" sorting_1"><a class="icon-edit" href="/customer/Edit/@item.Id">Detay</a></td>
 
                                         <td class=" ">@Html.DisplayFor(modelItem => item.CustomeCode)</td>

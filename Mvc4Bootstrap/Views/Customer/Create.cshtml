@@ -1,16 +1,10 @@
 ﻿@model A1fxCrm.Web.Models.Customer
 
 @{
-    ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutBlue.cshtml";
 }
-<ul class="breadcrumb">
-    <li><a href="#">Anasayfa</a> <span class="divider">/</span></li>
-    <li class="active">Müşteri Düzenle</li>
-</ul>
-@section sidebar {
-    @Html.Partial("_RightMenu")
-}
+ 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -146,7 +140,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Geri", "Index")
 </div>
 
 @section Scripts {
