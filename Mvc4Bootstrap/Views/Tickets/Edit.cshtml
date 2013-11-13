@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutBlue.cshtml";
 }
 
 
@@ -10,23 +10,7 @@
     <li><a href="#">Anasayfa</a> <span class="divider">/</span></li>
     <li class="active">Müşteriler -  @Model.Customer.FirstName @Model.Customer.LastName </li>
 </ul>
-@section sidebar {
-    <div class="bs-sidebar hidden-print" role="complementary">
-        <ul class="nav nav-list">
-            <li class="nav-header">@Html.ActionLink("Anasayfa", "Index", "Home")</li>
-            <li><a href="#">@Html.ActionLink("Müşteriler", "Index", "customer")</li>
-            <li><a href="#">Raporlar</a></li>
-            <li class="nav-header">Yönetim</li>
-            <li><a href="#">@Html.ActionLink("Kullanıcılar", "Index", "User")</li>
-            <li><a href="#">@Html.ActionLink("Yetkiler", "Index", "User")</a></li>
-            <li class="divider"></li>
-
-        </ul>
-
-    </div>
-
-}
-
+ 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)

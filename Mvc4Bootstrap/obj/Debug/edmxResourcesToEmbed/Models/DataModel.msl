@@ -49,6 +49,7 @@
     <EntitySetMapping Name="Customer">
       <EntityTypeMapping TypeName="A1fxCrmModel.Customer">
         <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CustomeCode" ColumnName="CustomeCode" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="CustomerStatusId" ColumnName="CustomerStatusId" />
           <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />

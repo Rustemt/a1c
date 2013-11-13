@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutBlue.cshtml";
 }
 
 
@@ -10,22 +10,7 @@
     <li><a href="#">Anasayfa</a> <span class="divider">/</span></li>
     <li class="active">Kullanıcılar</li>
 </ul>
-@section sidebar {
-    <div class="bs-sidebar hidden-print" role="complementary">
-        <ul class="nav nav-list">
-            <li class="nav-header">@Html.ActionLink("Anasayfa", "Index", "Home")</li>
-            <li><a href="#">@Html.ActionLink("Müşteriler", "Index", "customer")</li>
-            <li><a href="#">Raporlar</a></li>
-            <li class="nav-header">Yönetim</li>
-            <li><a href="#">@Html.ActionLink("Kullanıcılar", "Index", "User")</li>
-            <li><a href="#">@Html.ActionLink("Yetkiler", "Index", "User")</a></li>
-            <li class="divider"></li>
-
-        </ul>
-
-    </div>
-
-}
+ 
 
 <div id="page-actions" class="clearfix">
     <div btn-actions="" ng-transclude="" ng-style="BtnActionLeft()" class="btn-toolbar pull-left" style="left: auto;">
@@ -46,19 +31,7 @@
 
     </div>
     <div class="btn-toolbar pull-right">
-        @*<div class="btn-group">
-            <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
-                <i class="icon-filter"></i>&nbsp;Filtre
-        <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <!-- ngRepeat: filter in definitionFilters -->
-
-                <li><a tabindex="-1" href="#">Ümmet Zivali</a></li>
-                <li><a tabindex="-1" href="#">Rüstem Türkyılmaz</a></li>
-
-            </ul>
-        </div>*@
+    
 
         <div class="input-append" style="margin: 0px 0px 0px 10px;">
 
@@ -77,7 +50,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
- 
+
 
         @Html.HiddenFor(model => model.Id)
 
@@ -91,7 +64,7 @@
         </div>
 
         <div class="editor-label">
-           Kullanıcı Adı
+            Kullanıcı Adı
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.UserName)
@@ -124,15 +97,21 @@
             @Html.EditorFor(model => model.Status)
             @Html.ValidationMessageFor(model => model.Status)
         </div>
-
-        <p>
+        <div class="editor-label">
+            Kullanıcı Yetkisi
+           
+        </div>
+        <div class="editor-field">
+             @Html.DropDownList("roleId",ViewBag.Roles as SelectList,"Seçiniz")
+        </div>
+        <div class="editor-label">
             <input type="submit" value="Save" />
-        </p>
+        </div>
     </fieldset>
 }
 
-<div>
- 
+
+
 
 
 @section Scripts {

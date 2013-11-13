@@ -92,6 +92,7 @@
     <NavigationProperty Name="CustomerStatus" Relationship="A1fxCrmModel.FK_Customer_CustomerStatus" FromRole="Customer" ToRole="CustomerStatus" />
     <NavigationProperty Name="CustomerTicket" Relationship="A1fxCrmModel.FK_CustomerTicket_CustomerTicket" FromRole="Customer" ToRole="CustomerTicket" />
     <NavigationProperty Name="User" Relationship="A1fxCrmModel.FK_Customer_User" FromRole="Customer" ToRole="User" />
+    <Property Type="String" Name="CustomeCode" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="CustomerTicket">
     <Key>

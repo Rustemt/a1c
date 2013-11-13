@@ -65,6 +65,7 @@
     <Property Name="UpdateUserId" Type="int" />
     <Property Name="CustomerStatusId" Type="int" Nullable="false" />
     <Property Name="UserId" Type="int" />
+    <Property Name="CustomeCode" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="CustomerStatus">
     <Key>

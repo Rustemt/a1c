@@ -1,0 +1,181 @@
+﻿@model PagedList.PagedList<A1fxCrm.Web.Models.Customer>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .status-1 {
+        background-color: aliceblue;
+    }
+
+    .status-2 {
+        background-color: antiquewhite;
+    }
+
+    .status-3 {
+        background-color: lightyellow;
+    }
+
+    .status-4 {
+        background-color: beige;
+    }
+
+    .status-5 {
+        background-color: coral;
+    }
+
+    .status-6 {
+        background-color: lightgoldenrodyellow;
+    }
+
+    .status-7 {
+        background-color: ivory;
+    }
+
+    .status-8 {
+        background-color: whitesmoke;
+    }
+
+    .status-9 {
+        background-color: darkslategray;
+    }
+
+    .status-10 {
+        background-color: lightslategray;
+    }
+
+    .status-11 {
+        background-color: lightskyblue;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-title">
+                <h3><i class="icon-table"></i>Müşterilerim</h3>
+                <div class="box-tool">
+                    <a data-action="collapse" href="#"><i class="icon-chevron-up"></i></a>
+                    <a data-action="close" href="#"><i class="icon-remove"></i></a>
+                </div>
+            </div>
+            <div class="box-content">
+                <div class="btn-toolbar pull-right clearfix">
+                    <div class="btn-group">
+                        @{ if (Html.IsAdmin())
+                           {
+                            <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-filter"></i>&nbsp;Kullanıcılar
+                          <span class="caret"></span>
+                            </button>
+                            @Html.Action("ActiveUserList", "User")
+                           }}
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-filter"></i>&nbsp;Kategoriler
+                          <span class="caret"></span>
+                        </button>
+                        @Html.Action("StatusList", "Status")
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn btn-circle show-tooltip" title="" href="#" data-original-title="Add new record"><i class="icon-plus"></i></a>
+                        <a class="btn btn-circle show-tooltip" title="" href="#" data-original-title="Edit selected"><i class="icon-edit"></i></a>
+                        <a class="btn btn-circle show-tooltip" title="" href="#" data-original-title="Delete selected"><i class="icon-trash"></i></a>
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn btn-circle show-tooltip" title="" href="#" data-original-title="Print"><i class="icon-print"></i></a>
+                        <a class="btn btn-circle show-tooltip" title="" href="#" data-original-title="Export to PDF"><i class="icon-file-text-alt"></i></a>
+                        <a class="btn btn-circle show-tooltip" title="" href="#" data-original-title="Export to Exel"><i class="icon-table"></i></a>
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn btn-circle show-tooltip" title="" href="#" data-original-title="Refresh"><i class="icon-repeat"></i></a>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="clearfix"></div>
+                <div class="table-responsive">
+                    <div id="table1_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                        @*  <div class="row">
+                            <div class="col-xs-6">
+                                <div id="table1_length" class="dataTables_length">
+                                    <label>
+                                        <select size="1" name="table1_length" aria-controls="table1">
+                                            <option value="10" selected="selected">10</option>
+                                            <option value="15">15</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                            <option value="-1">All</option>
+                                        </select>
+                                        kayıt göster</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="dataTables_filter" id="table1_filter">
+                                    <label>
+                                        Arama:
+                                        <input type="text" aria-controls="table1"></label>
+                                </div>
+                            </div>
+                        </div>*@
+                        <table class="table table-advance dataTable" id="table1" aria-describedby="table1_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label="&amp;nbsp;" style="width: 43px;">&nbsp;</th>
+
+                                    <th class="text-center sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Müşteri Kodu: activate to sort column ascending" style="width: 91px;">Müşteri Kodu</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Adı Soyadı: activate to sort column ascending" style="width: 90px;">Adı Soyadı</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Telefon: activate to sort column ascending" style="width: 58px;">Telefon</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="GSM: activate to sort column ascending" style="width: 33px;">GSM</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending" style="width: 47px;">E-mail</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Ortak Temsilci: activate to sort column ascending" style="width: 109px;">M. Kategori</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Şehir: activate to sort column ascending" style="width: 70px;">Şehir</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Tarih: activate to sort column ascending" style="width: 75px;">Tarih</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Kaynak: activate to sort column ascending" style="width: 86px;">Kaynak</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Referans: activate to sort column ascending" style="width: 94px;">Referans</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Havuza Gönder: activate to sort column ascending" style="width: 116px;">Havuza Gönder</th>
+                                </tr>
+                            </thead>
+
+
+                            <tbody role="alert" aria-live="polite" aria-relevant="all">
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="table-flag-blue odd">
+                                        <td class=" sorting_1"><a class="icon-edit" href="/customer/Edit/@item.Id">Detay</a></td>
+
+                                        <td class=" ">>@Html.DisplayFor(modelItem => item.CustomeCode)</td>
+                                        <td class="text-center ">@Html.DisplayFor(modelItem => item.FirstName)  @Html.DisplayFor(modelItem => item.LastName)</td>
+                                        <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-phone"></i></a></td>
+                                        <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-mobile-phone"></i></a></td>
+                                        <td class="text-center "><a href="" target="_blank"><i class="icon-envelope"></i></a></td>
+                                        <td>@Html.DisplayFor(modelItem => item.CustomerStatus.Name)</td>
+                                        <td class=" ">@Html.DisplayFor(modelItem => item.City)</td>
+                                        <td class=" ">@Html.DisplayFor(modelItem => item.CreatedDate)</td>
+                                        <td class=" ">@Html.DisplayFor(modelItem => item.Source)</td>
+                                        <td class=" ">@Html.DisplayFor(modelItem => item.Referance)</td>
+                                        <td class=" "><a href="#">Havuza Gönder</a><a></a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="dataTables_info" id="table1_info">1 - 10 of 30</div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="dataTables_paginate paging_bootstrap">
+                                    @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

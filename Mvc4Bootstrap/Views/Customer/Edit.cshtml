@@ -2,100 +2,87 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutBlue.cshtml";
 }
 <ul class="breadcrumb">
     <li><a href="#">Anasayfa</a> <span class="divider">/</span></li>
     <li class="active">Müşteri Düzenle</li>
 </ul>
-@section sidebar {
-    <div class="bs-sidebar hidden-print" role="complementary">
-        <ul class="nav nav-list">
-            <li class="nav-header">@Html.ActionLink("Anasayfa", "Index", "Home")</li>
-            <li><a href="#">@Html.ActionLink("Müşteriler", "Index", "customer")</li>
-            <li><a href="#">Raporlar</a></li>
-            <li class="nav-header">Yönetim</li>
-            <li><a href="#">@Html.ActionLink("Kullanıcılar", "Index", "User")</li>
-            <li><a href="#">@Html.ActionLink("Yetkiler", "Index", "User")</a></li>
-            <li class="divider"></li>
-
-        </ul>
-
-    </div>
-
-}
+ 
 <table id="newtable" class="table table-bordered">
 
     <tbody>
+
+        @using (Html.BeginForm("Edit", "Customer", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+    
+            @Html.HiddenFor(model => model.Id)
+            <tr>
+                <td>Müşteri Kodu: </td>
+                <td colspan="3">@Html.EditorFor(model => model.CustomeCode)
+                    @Html.ValidationMessageFor(model => model.CustomeCode)</td>
+               
+            </tr>
+            <tr>
+                <td>Adı: </td>
+                <td>@Html.EditorFor(model => model.FirstName)
+                    @Html.ValidationMessageFor(model => model.FirstName)</td>
+                <td>Soyadı:</td>
+                <td>@Html.EditorFor(model => model.LastName)
+                    @Html.ValidationMessageFor(model => model.LastName)</td>
+            </tr>
  
-@using (Html.BeginForm("Edit", "Customer", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-
-    
-    @Html.HiddenFor(model => model.Id)
-      <tr>
-            <td>  Adı: </td>
-            <td>  @Html.EditorFor(model => model.FirstName)
-        @Html.ValidationMessageFor(model => model.FirstName)</td>
-            <td>  Soyadı:</td>
-            <td> @Html.EditorFor(model => model.LastName)
-        @Html.ValidationMessageFor(model => model.LastName)</td>
-        </tr>
-    
-
-    
-     <tr>
-     <td>E-Mail :</td>
-     <td> @Html.EditorFor(model => model.Email)
-        @Html.ValidationMessageFor(model => model.Email)</td>
-     <td>  Telefon :</td>
-     <td>  @Html.EditorFor(model => model.Phone)
-        @Html.ValidationMessageFor(model => model.Phone)</td>
- </tr>
-
-    
-    <tr>
-     <td> Gsm:</td>
-     <td>  @Html.EditorFor(model => model.Mobile)
-        @Html.ValidationMessageFor(model => model.Mobile)</td>
-     <td>  Şehir :</td>
-     <td> @Html.EditorFor(model => model.City)
-        @Html.ValidationMessageFor(model => model.City)</td>
- </tr>
+            <tr>
+                <td>E-Mail :</td>
+                <td>@Html.EditorFor(model => model.Email)
+                    @Html.ValidationMessageFor(model => model.Email)</td>
+                <td>Telefon :</td>
+                <td>@Html.EditorFor(model => model.Phone)
+                    @Html.ValidationMessageFor(model => model.Phone)</td>
+            </tr>
  
-   <tr>
-     <td> Kaynak : </td>
-     <td>  @Html.EditorFor(model => model.Source)
-        @Html.ValidationMessageFor(model => model.Source)</td>
-     <td> Referans : </td>
-     <td>   @Html.EditorFor(model => model.Referance)
-        @Html.ValidationMessageFor(model => model.Referance)</td>
- </tr>
-  
-  <tr>
-     <td> Müşteri Kategori :</td>
-     <td>  @Html.DropDownList("CustomerStatusId", String.Empty)
-        @Html.ValidationMessageFor(model => model.CustomerStatusId)</td>
-     <td>  Temsilcisi :</td>
-     <td>  @Html.DropDownList("UserId", String.Empty)
-        @Html.ValidationMessageFor(model => model.UserId)</td>
- </tr>
-   
- <tr><td colspan="4">
+            <tr>
+                <td>Gsm:</td>
+                <td>@Html.EditorFor(model => model.Mobile)
+                    @Html.ValidationMessageFor(model => model.Mobile)</td>
+                <td>Şehir :</td>
+                <td>@Html.EditorFor(model => model.City)
+                    @Html.ValidationMessageFor(model => model.City)</td>
+            </tr>
+ 
+            <tr>
+                <td>Kaynak : </td>
+                <td>@Html.EditorFor(model => model.Source)
+                    @Html.ValidationMessageFor(model => model.Source)</td>
+                <td>Referans : </td>
+                <td>@Html.EditorFor(model => model.Referance)
+                    @Html.ValidationMessageFor(model => model.Referance)</td>
+            </tr>  
+            <tr>
+                <td>Müşteri Kategori :</td>
+                <td>@Html.DropDownList("CustomerStatusId", String.Empty)
+                    @Html.ValidationMessageFor(model => model.CustomerStatusId)</td>
+                <td>Temsilcisi :</td>
+                <td>@Html.DropDownList("UserId", String.Empty)
+                    @Html.ValidationMessageFor(model => model.UserId)</td>
+            </tr>   
+            <tr>
+                <td colspan="4">
 
-      <input type="submit" value="Kaydet"  class="btn btn-primary"/>
-     </td></tr>
+                    <input type="submit" value="Kaydet" class="btn btn-primary" />
+                </td>
+            </tr>
 
-    
-}
-             
+        }
+
     </tbody>
 </table>
 @Html.Action("Index", "Tickets", new { id = Model.Id })
 <div>
-      @Html.ActionLink("Geri", "Index")
+    @Html.ActionLink("Geri", "Index")
 </div>
 
 @section Scripts {

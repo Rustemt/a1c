@@ -56,6 +56,14 @@ namespace Mvc4Bootstrap.Controllers
             return View(customerticket.ToList());
         }
 
+        public ActionResult TicketList()
+        {
+
+            var customerticket = db.CustomerTicket.Include(c => c.Customer).OrderByDescending(r=>r.CreatedDate);
+
+           
+            return View(customerticket.ToList());
+        }
         //
         // GET: /Tickets/Details/5
 

@@ -4,52 +4,46 @@
  
     Layout = null;
 }
+<script>
+    tinymce.init({ selector: 'textarea' });
+</script>
+ 
+<div data-ng-controller="GroupsCtrl">
+
+    <textarea data-ng-model="yourName" id="yourName" name="yourName" cols="400" rows="3" class="ng-pristine ng-valid" style="margin: 0px 0px 10px; width: 654px; height: 69px;"></textarea>
+    <input type="hidden" data-ng-model="id" value="@Model.FirstOrDefault().CustomerId" data-ng-init="id=@Model.FirstOrDefault().CustomerId"/>
+    <br />
+    <button class="btn btn-primary" data-ng-click="save()">
+        Müşteri Notunu Kaydet
+    </button>
 
 
-@*<div id="page-actions" class="clearfix">
-    <div btn-actions="" ng-transclude="" ng-style="BtnActionLeft()" class="btn-toolbar pull-left" style="left: auto;">
-        <button class="btn btn-small btn-success ng-scope" data-ng-click="add()">
-            <i class="icon-plus"></i>&nbsp;@Html.ActionLink("Yeni Not Ekle", "Create", new { id = Model.First().CustomerId })
-        </button>
-   
+</div>
 
-    </div>
 
-</div>*@
- <div data-ng-controller="GroupsCtrl">
-     <input type="text" data-ng-model="yourName" placeholder="not ekleyin">
-     <input type="hidden" data-ng-model="id" value="@Model.FirstOrDefault().CustomerId" data-ng-init="id=@Model.FirstOrDefault().CustomerId"/>
-     <button class="btn btn-small btn-success ng-scope" data-ng-click="save()">
-            <i class="icon-plus"></i>
-        </button>
-  
-         
-     </div>
-Müşteri Temsilci Notları:
-<table class="table table-bordered table-hover">
+<table class="table table-bordered table-hover" style="margin-top: 40px;">
+    <tr>
+        <th colspan="3">Temsilci Notları:</th>
+    </tr>
     <tr>
         <th>Detay</th>
         <th>Tarih-Saat</th>
-          <th>
-            Başlık
-        </th>
+
         <th>M. Temsilcisi Açıklama
         </th>
-      
+
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
-            <td>@Html.ActionLink("Not Detay", "Edit", new { id = item.Id })  </td>
+            <td>@Html.ActionLink("Detay", "Edit", new { id = item.Id })  </td>
             <td>@Html.DisplayFor(modelItem => item.CreatedDate)</td>
-             <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Content)
             </td>
-           
+
         </tr>
     }
 

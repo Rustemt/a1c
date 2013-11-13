@@ -34,6 +34,7 @@ namespace A1fxCrm.Web.Models
         public Nullable<int> UpdateUserId { get; set; }
         public int CustomerStatusId { get; set; }
         public Nullable<int> UserId { get; set; }
+        public string CustomeCode { get; set; }
     
         public virtual CustomerStatus CustomerStatus { get; set; }
         public virtual ICollection<CustomerTicket> CustomerTicket { get; set; }

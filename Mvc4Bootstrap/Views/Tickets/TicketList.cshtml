@@ -1,0 +1,32 @@
+﻿@model IEnumerable<A1fxCrm.Web.Models.CustomerTicket>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutBlue.cshtml";
+}
+ 
+ 
+<table class="table table-bordered table-hover" style="margin-top:40px;">
+    <tr><th colspan="3">Temsilci Notları:</th></tr>
+    <tr>
+        <th>Detay</th>
+        <th>Tarih-Saat</th>
+        <th>M. Temsilcisi Açıklama
+        </th>
+      
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink("Detay", "Edit", new { id = item.Id })  </td>
+            <td>@Html.DisplayFor(modelItem => item.CreatedDate)</td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+           
+        </tr>
+    }
+
+</table>

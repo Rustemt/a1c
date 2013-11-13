@@ -14,8 +14,11 @@ namespace A1fxCrm.Web
         {
             bundles.Add(new StyleBundle("~/css")
                             .Include("~/Content/bootstrap.css")
-                            .Include("~/Content/bootstrap-responsive.css")
-                            .Include("~/Content/site.css"));
+                            .Include("~/Content/dataTables.bootstrap.css")
+                        
+                            .Include("~/Content/flaty.css")
+                            .Include("~/Content/flaty-responsive.css"));
+                            
         }
 
         private static void RegisterJavascriptBundles(BundleCollection bundles)
@@ -23,7 +26,12 @@ namespace A1fxCrm.Web
             bundles.Add(new ScriptBundle("~/js")
                             .Include("~/Scripts/jquery-{version}.js")
                             .Include("~/Scripts/jquery-ui-{version}.js")
+                            .Include("~/Scripts/dataTables.bootstrap.js")
+                            .Include("~/Scripts/jquery.dataTables.js")
+                             
+                            .Include("~/Scripts/falty.js")
                             .Include("~/Scripts/bootstrap.js"));
+            
         }
     }
 }

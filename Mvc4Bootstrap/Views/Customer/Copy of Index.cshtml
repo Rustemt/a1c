@@ -1,0 +1,167 @@
+﻿@model PagedList.PagedList<A1fxCrm.Web.Models.Customer>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .status-1 {
+        background-color:aliceblue;
+    }
+
+    .status-2 {
+        background-color: antiquewhite;
+    }
+
+    .status-3 {
+        background-color: lightyellow;
+    }
+
+    .status-4 {
+        background-color: beige;
+    }
+
+    .status-5 {
+        background-color: coral;
+    }
+
+    .status-6 {
+        background-color: lightgoldenrodyellow;
+    }
+
+    .status-7 {
+        background-color: ivory;
+    }
+
+    .status-8 {
+        background-color: whitesmoke;
+    }
+
+    .status-9 {
+        background-color: darkslategray;
+    }
+
+    .status-10 {
+        background-color: lightslategray;
+    }
+
+    .status-11 {
+        background-color: lightskyblue;
+    }
+</style>
+<ul class="breadcrumb">
+    <li><a href="#">Anasayfa</a> <span class="divider">/</span></li>
+    <li class="active">Müşteriler</li>
+</ul>
+
+@section sidebar {
+@Html.Partial("_RightMenu")
+}
+<div id="page-actions" class="clearfix">
+    <div btn-actions="" ng-transclude="" ng-style="BtnActionLeft()" class="btn-toolbar pull-left" style="left: auto;">
+    </div>
+    <div class="btn-toolbar pull-right">
+        <div class="btn-group">
+            @{ if (Html.IsAdmin())
+               {
+                <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-filter"></i>&nbsp;Kullanıcılar
+             <span class="caret"></span>
+                </button>
+                @Html.Action("ActiveUserList", "User")
+               }}
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
+                <i class="icon-filter"></i>&nbsp;Kategoriler
+        <span class="caret"></span>
+            </button>
+            @Html.Action("StatusList", "Status")
+        </div>
+
+        <div class="input-append" style="margin: 0px 0px 0px 10px;">
+
+            <form style="margin: 0px" method="post" action="/Customer">
+                <input type="text" style="line-height: 16px; font-size: 13px;" id="search" name="search">
+
+                <button type="submit" class="btn">Ara</button>
+            </form>
+        </div>
+    </div>
+</div>
+<table class="table table-advance dataTable" >
+
+    <thead>
+        <tr>
+            <th>Detay</th>
+            <th>Müşteri Kodu</th>
+            <th>Adı Soyadı
+            </th>
+
+            <th>Telefon
+            </th>
+            <th>GSM
+            </th>
+            <th>E-Mail</th>
+            <th>M.Kategori</th>
+            <th>Şehir
+            </th>
+            <th>Kaynak
+            </th>
+            <th>Referance
+            </th>
+            <th>Tarih
+            </th>
+
+
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr class="status-@item.CustomerStatusId">
+
+            <td>
+
+                <a class="icon-edit" href="/customer/Edit/@item.Id"></a>
+            </td>
+            <td>@Html.DisplayFor(modelItem => item.CustomeCode) </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)  @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+
+            <td>
+                <a href="/customer/Edit/@item.Id" class="icon-user"></a>
+            </td>
+            <td>
+
+                <a href="/customer/Edit/@item.Id" class="icon-user"></a>
+            </td>
+            <td><a href="/customer/Edit/@item.Id" class="icon-envelope"></a></td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerStatus.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+
+
+        </tr>
+    }
+
+</table>
+<div class="pagination pagination-right">
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
+

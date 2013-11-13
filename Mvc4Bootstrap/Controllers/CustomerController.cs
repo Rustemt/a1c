@@ -12,8 +12,8 @@ using A1fxCrm.Web.Framework.Security.Attributes;
 
 namespace Mvc4Bootstrap.Controllers
 {
-     [Authorization(Group = "", Name = "Cust")]
-    [Authorization(Group = "", Name = "CustAdmin")]
+
+    [Authorization(Group = "", Name = "User")]
     public class CustomerController : Controller
     {
         private A1fxCrmEntities db = new A1fxCrmEntities();
@@ -23,7 +23,7 @@ namespace Mvc4Bootstrap.Controllers
 
         public ActionResult Index(string search, int page = 1, int uid = 0, int cid = 0)
         {
-           
+
 
             int pageSize = 3;
             int pageNumber = page;
@@ -31,15 +31,15 @@ namespace Mvc4Bootstrap.Controllers
             if (uid > 0)
                 customer = customer.Where(r => r.UserId == uid);
 
-             if (cid > 0)
+            if (cid > 0)
                 customer = customer.Where(r => r.CustomerStatusId == cid);
 
-             if (!string.IsNullOrEmpty(search))
-                 customer = customer.Where(r => r.FirstName.Contains(search)
-                                             || r.LastName.Contains(search)
-                                             || r.Referance.Contains(search)
-                                             || r.Source.Contains(search));
-                                                    
+            if (!string.IsNullOrEmpty(search))
+                customer = customer.Where(r => r.FirstName.Contains(search)
+                                            || r.LastName.Contains(search)
+                                            || r.Referance.Contains(search)
+                                            || r.Source.Contains(search));
+
 
             customer = customer.OrderByDescending(r => r.CreatedDate);
             var customerPaged = customer.ToPagedList(pageNumber, pageSize);
@@ -82,12 +82,13 @@ namespace Mvc4Bootstrap.Controllers
         {
             if (ModelState.IsValid)
             {
-                 var _user =db.User.Where(r=>r.UserName == HttpContext.User.Identity.Name).FirstOrDefault();
-                 customer.UpdateUserId = _user.Id;
-                 customer.UpdatedDate = DateTime.Now;
-                 customer.CreateUserId = _user.Id;
-                 customer.CreatedDate = DateTime.Now;
-                 customer.UserId = _user.Id;
+                var _user = db.User.Where(r => r.UserName == HttpContext.User.Identity.Name).FirstOrDefault();
+                customer.UpdateUserId = _user.Id;
+                customer.UpdatedDate = DateTime.Now;
+                customer.CreateUserId = _user.Id;
+                customer.CreatedDate = DateTime.Now;
+                customer.UserId = _user.Id;
+
                 db.Customer.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -123,8 +124,8 @@ namespace Mvc4Bootstrap.Controllers
             if (ModelState.IsValid)
             {
                 var _customer = db.Customer.Where(r => r.Id == customer.Id).FirstOrDefault();
-                
-                var _user =db.User.Where(r=>r.UserName == HttpContext.User.Identity.Name).FirstOrDefault();
+
+                var _user = db.User.Where(r => r.UserName == HttpContext.User.Identity.Name).FirstOrDefault();
                 _customer.FirstName = customer.FirstName;
                 _customer.LastName = customer.LastName;
                 _customer.Email = customer.Email;
@@ -136,6 +137,7 @@ namespace Mvc4Bootstrap.Controllers
                 _customer.CustomerStatusId = customer.CustomerStatusId;
                 _customer.UpdatedDate = DateTime.Now;
                 _customer.UpdateUserId = _user.Id;
+                _customer.CustomeCode = customer.CustomeCode;
                 db.Entry(_customer).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

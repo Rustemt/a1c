@@ -1,0 +1,234 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-title">
+                <h3><i class="icon-table"></i>Müşterilerim</h3>
+                <div class="box-tool">
+                    <a data-action="collapse" href="#"><i class="icon-chevron-up"></i></a>
+                    <a data-action="close" href="#"><i class="icon-remove"></i></a>
+                </div>
+            </div>
+            <div class="box-content">
+                <div class="btn-toolbar pull-right clearfix">
+                    <div class="btn-group">
+                        <a class="btn btn-circle show-tooltip" title="" href="#" data-original-title="Add new record"><i class="icon-plus"></i></a>
+                        <a class="btn btn-circle show-tooltip" title="" href="#" data-original-title="Edit selected"><i class="icon-edit"></i></a>
+                        <a class="btn btn-circle show-tooltip" title="" href="#" data-original-title="Delete selected"><i class="icon-trash"></i></a>
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn btn-circle show-tooltip" title="" href="#" data-original-title="Print"><i class="icon-print"></i></a>
+                        <a class="btn btn-circle show-tooltip" title="" href="#" data-original-title="Export to PDF"><i class="icon-file-text-alt"></i></a>
+                        <a class="btn btn-circle show-tooltip" title="" href="#" data-original-title="Export to Exel"><i class="icon-table"></i></a>
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn btn-circle show-tooltip" title="" href="#" data-original-title="Refresh"><i class="icon-repeat"></i></a>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="clearfix"></div>
+                <div class="table-responsive">
+                    <div id="table1_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div id="table1_length" class="dataTables_length">
+                                    <label>
+                                        <select size="1" name="table1_length" aria-controls="table1">
+                                            <option value="10" selected="selected">10</option>
+                                            <option value="15">15</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                            <option value="-1">All</option>
+                                        </select>
+                                        kayıt göster</label></div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="dataTables_filter" id="table1_filter">
+                                    <label>Arama:
+                                        <input type="text" aria-controls="table1"></label></div>
+                            </div>
+                        </div>
+                        <table class="table table-advance dataTable" id="table1" aria-describedby="table1_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label="&amp;nbsp;" style="width: 43px;">&nbsp;</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Ortak Temsilci: activate to sort column ascending" style="width: 109px;">Ortak Temsilci</th>
+                                    <th class="text-center sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Müşteri Kodu: activate to sort column ascending" style="width: 91px;">Müşteri Kodu</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Adı Soyadı: activate to sort column ascending" style="width: 90px;">Adı Soyadı</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Telefon: activate to sort column ascending" style="width: 58px;">Telefon</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="GSM: activate to sort column ascending" style="width: 33px;">GSM</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending" style="width: 47px;">E-mail</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Şehir: activate to sort column ascending" style="width: 70px;">Şehir</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Tarih: activate to sort column ascending" style="width: 75px;">Tarih</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Kaynak: activate to sort column ascending" style="width: 86px;">Kaynak</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Referans: activate to sort column ascending" style="width: 94px;">Referans</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Havuza Gönder: activate to sort column ascending" style="width: 116px;">Havuza Gönder</th>
+                                </tr>
+                            </thead>
+
+                            <tbody role="alert" aria-live="polite" aria-relevant="all">
+                                <tr class="table-flag-blue odd">
+                                    <td class=" sorting_1">Detay</td>
+                                    <td class=" ">-</td>
+                                    <td class=" ">50503</td>
+                                    <td class="text-center ">Ümmet Zivali</td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-phone"></i></a></td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-mobile-phone"></i></a></td>
+                                    <td class="text-center "><a href="mailto:deneme@deneme.com" target="_blank"><i class="icon-envelope"></i></a></td>
+                                    <td class=" ">ISTANBUL</td>
+                                    <td class=" ">2013-09-22</td>
+                                    <td class=" ">Demo Talebi</td>
+                                    <td class=" ">deneme</td>
+                                    <td class=" "><a href="#">Havuza Gönder</a><a></a></td>
+                                </tr>
+                                <tr class="table-flag-blue even">
+                                    <td class=" sorting_1">Detay</td>
+                                    <td class=" ">-</td>
+                                    <td class=" ">50508</td>
+                                    <td class="text-center ">Ümmet Zivali</td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-phone"></i></a></td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-mobile-phone"></i></a></td>
+                                    <td class="text-center "><a href="mailto:deneme@deneme.com" target="_blank"><i class="icon-envelope"></i></a></td>
+                                    <td class=" ">ISTANBUL</td>
+                                    <td class=" ">2013-09-22</td>
+                                    <td class=" ">Demo Talebi</td>
+                                    <td class=" ">googlereklam</td>
+                                    <td class=" "><a href="#">Havuza Gönder</a><a></a></td>
+                                </tr>
+                                <tr class="table-flag-blue odd">
+                                    <td class=" sorting_1">Detay</td>
+                                    <td class=" ">-</td>
+                                    <td class=" ">50501</td>
+                                    <td class="text-center ">Ümmet Zivali</td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-phone"></i></a></td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-mobile-phone"></i></a></td>
+                                    <td class="text-center "><a href="mailto:deneme@deneme.com" target="_blank"><i class="icon-envelope"></i></a></td>
+                                    <td class=" ">ISTANBUL</td>
+                                    <td class=" ">2013-09-22</td>
+                                    <td class=" ">Demo Talebi</td>
+                                    <td class=" ">googlereklam</td>
+                                    <td class=" "><a href="#">Havuza Gönder</a><a></a></td>
+                                </tr>
+                                <tr class="table-flag-blue even">
+                                    <td class=" sorting_1">Detay</td>
+                                    <td class=" ">-</td>
+                                    <td class=" ">50501</td>
+                                    <td class="text-center ">Ümmet Zivali</td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-phone"></i></a></td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-mobile-phone"></i></a></td>
+                                    <td class="text-center "><a href="mailto:deneme@deneme.com" target="_blank"><i class="icon-envelope"></i></a></td>
+                                    <td class=" ">ISTANBUL</td>
+                                    <td class=" ">2013-09-22</td>
+                                    <td class=" ">Demo Talebi</td>
+                                    <td class=" ">googlereklam</td>
+                                    <td class=" "><a href="#">Havuza Gönder</a><a></a></td>
+                                </tr>
+                                <tr class="table-flag-blue odd">
+                                    <td class=" sorting_1">Detay</td>
+                                    <td class=" ">-</td>
+                                    <td class=" ">50501</td>
+                                    <td class="text-center ">Ümmet Zivali</td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-phone"></i></a></td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-mobile-phone"></i></a></td>
+                                    <td class="text-center "><a href="mailto:deneme@deneme.com" target="_blank"><i class="icon-envelope"></i></a></td>
+                                    <td class=" ">ISTANBUL</td>
+                                    <td class=" ">2013-09-22</td>
+                                    <td class=" ">Demo Talebi</td>
+                                    <td class=" ">googlereklam</td>
+                                    <td class=" "><a href="#">Havuza Gönder</a><a></a></td>
+                                </tr>
+                                <tr class="table-flag-blue even">
+                                    <td class=" sorting_1">Detay</td>
+                                    <td class=" ">-</td>
+                                    <td class=" ">50501</td>
+                                    <td class="text-center ">Ümmet Zivali</td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-phone"></i></a></td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-mobile-phone"></i></a></td>
+                                    <td class="text-center "><a href="mailto:deneme@deneme.com" target="_blank"><i class="icon-envelope"></i></a></td>
+                                    <td class=" ">ISTANBUL</td>
+                                    <td class=" ">2013-09-22</td>
+                                    <td class=" ">Demo Talebi</td>
+                                    <td class=" ">googlereklam</td>
+                                    <td class=" "><a href="#">Havuza Gönder</a><a></a></td>
+                                </tr>
+                                <tr class="table-flag-blue odd">
+                                    <td class=" sorting_1">Detay</td>
+                                    <td class=" ">-</td>
+                                    <td class=" ">50501</td>
+                                    <td class="text-center ">Ümmet Zivali</td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-phone"></i></a></td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-mobile-phone"></i></a></td>
+                                    <td class="text-center "><a href="mailto:deneme@deneme.com" target="_blank"><i class="icon-envelope"></i></a></td>
+                                    <td class=" ">ISTANBUL</td>
+                                    <td class=" ">2013-09-22</td>
+                                    <td class=" ">Demo Talebi</td>
+                                    <td class=" ">googlereklam</td>
+                                    <td class=" "><a href="#">Havuza Gönder</a><a></a></td>
+                                </tr>
+                                <tr class="table-flag-blue even">
+                                    <td class=" sorting_1">Detay</td>
+                                    <td class=" ">-</td>
+                                    <td class=" ">50501</td>
+                                    <td class="text-center ">Ümmet Zivali</td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-phone"></i></a></td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-mobile-phone"></i></a></td>
+                                    <td class="text-center "><a href="mailto:deneme@deneme.com" target="_blank"><i class="icon-envelope"></i></a></td>
+                                    <td class=" ">ISTANBUL</td>
+                                    <td class=" ">2013-09-22</td>
+                                    <td class=" ">Demo Talebi</td>
+                                    <td class=" ">googlereklam</td>
+                                    <td class=" "><a href="#">Havuza Gönder</a><a></a></td>
+                                </tr>
+                                <tr class="table-flag-blue odd">
+                                    <td class=" sorting_1">Detay</td>
+                                    <td class=" ">-</td>
+                                    <td class=" ">50501</td>
+                                    <td class="text-center ">Ümmet Zivali</td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-phone"></i></a></td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-mobile-phone"></i></a></td>
+                                    <td class="text-center "><a href="mailto:deneme@deneme.com" target="_blank"><i class="icon-envelope"></i></a></td>
+                                    <td class=" ">ISTANBUL</td>
+                                    <td class=" ">2013-09-22</td>
+                                    <td class=" ">Demo Talebi</td>
+                                    <td class=" ">googlereklam</td>
+                                    <td class=" "><a href="#">Havuza Gönder</a><a></a></td>
+                                </tr>
+                                <tr class="table-flag-blue even">
+                                    <td class=" sorting_1">Detay</td>
+                                    <td class=" ">-</td>
+                                    <td class=" ">50501</td>
+                                    <td class="text-center ">Ümmet Zivali</td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-phone"></i></a></td>
+                                    <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-mobile-phone"></i></a></td>
+                                    <td class="text-center "><a href="mailto:deneme@deneme.com" target="_blank"><i class="icon-envelope"></i></a></td>
+                                    <td class=" ">ISTANBUL</td>
+                                    <td class=" ">2013-09-22</td>
+                                    <td class=" ">Demo Talebi</td>
+                                    <td class=" ">googlereklam</td>
+                                    <td class=" "><a href="#">Havuza Gönder</a><a></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="dataTables_info" id="table1_info">1 - 10 of 30</div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="dataTables_paginate paging_bootstrap">
+                                    <ul class="pagination">
+                                        <li class="prev disabled"><a href="#">← Geri</a></li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li class="next"><a href="#">İleri → </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

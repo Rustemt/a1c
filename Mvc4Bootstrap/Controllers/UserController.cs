@@ -10,7 +10,7 @@ using A1fxCrm.Web.Framework.Security.Attributes;
 
 namespace Mvc4Bootstrap.Controllers
 {
-    [Authorization(Group = "", Name = "CustAdmin")]
+    [Authorization(Group = "", Name = "Admin")]
     public class UserController : Controller
     {
         private A1fxCrmEntities db = new A1fxCrmEntities();
@@ -71,6 +71,11 @@ namespace Mvc4Bootstrap.Controllers
         public ActionResult Edit(int id = 0)
         {
             User user = db.User.Find(id);
+            if (user.Role != null && user.Role.Count > 0)
+                ViewBag.Roles = new SelectList(db.Role, "Id", "DisplayName", user.Role.FirstOrDefault().Id);
+            else
+                ViewBag.Roles = new SelectList(db.Role, "Id", "DisplayName","Seçiniz");
+
             if (user == null)
             {
                 return HttpNotFound();
@@ -85,16 +90,17 @@ namespace Mvc4Bootstrap.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(User user)
         {
+
             if (ModelState.IsValid)
             {
-                var userIds=db.User.Where(r => r.Id == user.Id).FirstOrDefault();
+                var userIds = db.User.Where(r => r.Id == user.Id).FirstOrDefault();
                 userIds.FullName = user.FullName;
                 userIds.UserName = user.UserName;
                 userIds.IsAdministrator = user.IsAdministrator;
                 userIds.Status = user.Status;
                 userIds.Email = user.Email;
                 db.Entry(userIds).State = System.Data.Entity.EntityState.Modified;
-                
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

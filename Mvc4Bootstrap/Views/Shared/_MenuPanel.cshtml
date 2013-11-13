@@ -1,0 +1,41 @@
+﻿<div id="sidebar" class="navbar-collapse collapse">
+    <ul class="nav nav-list" style="height: auto;">
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <div id="sidebar-collapse" class="visible-lg">
+            <i class="icon-double-angle-left"></i>
+        </div>
+
+
+        <li>
+            <a href="/tickets/TicketList">
+                <i class="icon-dashboard"></i>
+                <span>Anasayfa</span>
+            </a>
+        </li>
+        <li class="active">
+            <a href="/customer">
+                <i class="icon-text-width"></i>
+                <span>Müşteriler</span>
+            </a>
+        </li>
+        @{ if (Html.IsAdmin())
+           {
+            <li>
+                <a href="/user" class="dropdown-toggle">
+                    <i class="icon-edit"></i>
+                    <span> Kullanıcılar </span>
+                    <b class="arrow icon-angle-right"></b>
+                </a>
+                 
+                   
+
+                
+            </li>
+           }}
+
+    </ul>
+    <div id="sidebar-collapse" class="visible-lg">
+        <i class="icon-double-angle-left"></i>
+    </div>
+</div>

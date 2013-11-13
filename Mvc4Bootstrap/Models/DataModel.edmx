@@ -70,6 +70,7 @@
           <Property Name="UpdateUserId" Type="int" />
           <Property Name="CustomerStatusId" Type="int" Nullable="false" />
           <Property Name="UserId" Type="int" />
+          <Property Name="CustomeCode" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="CustomerStatus">
           <Key>
@@ -347,6 +348,7 @@
           <NavigationProperty Name="CustomerStatus" Relationship="A1fxCrmModel.FK_Customer_CustomerStatus" FromRole="Customer" ToRole="CustomerStatus" />
           <NavigationProperty Name="CustomerTicket" Relationship="A1fxCrmModel.FK_CustomerTicket_CustomerTicket" FromRole="Customer" ToRole="CustomerTicket" />
           <NavigationProperty Name="User" Relationship="A1fxCrmModel.FK_Customer_User" FromRole="Customer" ToRole="User" />
+          <Property Type="String" Name="CustomeCode" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="CustomerTicket">
           <Key>
@@ -499,6 +501,7 @@
           <EntitySetMapping Name="Customer">
             <EntityTypeMapping TypeName="A1fxCrmModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomeCode" ColumnName="CustomeCode" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="CustomerStatusId" ColumnName="CustomerStatusId" />
                 <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />

@@ -8,7 +8,7 @@ namespace Mvc4Bootstrap.Controllers
     {
         //
         // GET: /Home/
-        [Authorization(Group = "", Name = "CustAdmin")]
+        [Authorization(Group = "", Name = "User")]
         public ActionResult Index()
         {
           
