@@ -25,7 +25,7 @@ namespace Mvc4Bootstrap.Controllers
         {
 
 
-            int pageSize = 3;
+            int pageSize = 15;
             int pageNumber = page;
             var customer = db.Customer.Include(c => c.CustomerStatus).Include(c => c.User);
             if (uid > 0)

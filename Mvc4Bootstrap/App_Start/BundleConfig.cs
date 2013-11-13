@@ -26,10 +26,6 @@ namespace A1fxCrm.Web
             bundles.Add(new ScriptBundle("~/js")
                             .Include("~/Scripts/jquery-{version}.js")
                             .Include("~/Scripts/jquery-ui-{version}.js")
-                            
-                            .Include("~/Scripts/jquery.dataTables.js")
-                             
-                            .Include("~/Scripts/falty.js")
                             .Include("~/Scripts/bootstrap.js"));
             
         }
