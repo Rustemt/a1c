@@ -64,6 +64,10 @@ namespace Mvc4Bootstrap.Controllers
  
             var customerPaged = customerticket.ToPagedList(pageNumber, pageSize);
 
+            foreach (var item in customerPaged)
+            {
+                var name = item.Customer.User.FirstName;
+            }
 
             return View(customerPaged);
         }

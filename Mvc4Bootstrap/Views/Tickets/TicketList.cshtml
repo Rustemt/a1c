@@ -32,8 +32,9 @@
                                 <tr role="row">
                                     <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label="&amp;nbsp;" style="width: 43px;">&nbsp;</th>
 
-                                   <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Tarih: activate to sort column ascending" style="width: 75px;">Tarih - Saat</th>
-                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Kaynak: activate to sort column ascending" style="width: 86px;">M. Temcilci Açıklaması</th>
+                                    <th class="text-center" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Tarih: activate to sort column ascending" style="width: 75px;">Tarih - Saat</th>
+                                    <th class="text-center" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Kaynak: activate to sort column ascending" style="width: 86px;">M. Temcilcisi</th>
+                                    <th class="text-center" role="columnheader" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="Kaynak: activate to sort column ascending" style="width: 86px;">M. Temcilci Açıklaması</th>
   
                                 </tr>
                             </thead>
@@ -45,8 +46,9 @@
                                     <tr class="table-flag-blue odd">
                                         <td class=" sorting_1"><a class="icon-edit" href="/Tickets/Edit/@item.Id">Detay Gör</a></td>
 
-                                        <td >@Html.DisplayFor(modelItem => item.CreatedDate)</td>
-                                        <td  >@Html.DisplayFor(modelItem => item.Content)</td>
+                                        <td class="text-center ">@Html.DisplayFor(modelItem => item.CreatedDate)</td>
+                                        <td class="text-center ">@Html.DisplayFor(modelItem => item.Customer.User.FirstName) @Html.DisplayFor(modelItem => item.Customer.User.LastName)</td>
+                                        <td class="text-center ">@Html.DisplayFor(modelItem => item.Content)</td>
                                         
 
                                     </tr>

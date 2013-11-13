@@ -28,9 +28,67 @@
         <a class="navbar-brand" href="Main.html">
             <img src="/Content/images/logo.png">
         </a>
-        @{if (HttpContext.Current.User.Identity.IsAuthenticated)
-        {
-            <ul class="nav flaty-nav pull-right">
+        <ul class="nav flaty-nav pull-right">
+            
+            <li class="hidden-xs">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <i class="icon-envelope"></i>
+                    <span class="badge badge-success">3</span>
+                </a>
+                <ul class="dropdown-navbar dropdown-menu">
+                    <li class="nav-header">
+                        <i class="icon-comments"></i>
+                        3 Tane Yeni Başvuru
+                    </li>
+                    <li class="msg">
+                        <a href="#">
+                            <img src="img/demo/avatar/avatar3.jpg" alt="Sarah's Avatar" />
+                            <div>
+                                <span class="msg-title">Ümmet</span>
+                                <span class="msg-time">
+                                    <i class="icon-time"></i>
+                                    <span>1 dk once</span>
+                                </span>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </a>
+                    </li>
+                    <li class="msg">
+                        <a href="#">
+                            <img src="img/demo/avatar/avatar4.jpg" alt="Emma's Avatar" />
+                            <div>
+                                <span class="msg-title">Rüstem</span>
+                                <span class="msg-time">
+                                    <i class="icon-time"></i>
+                                    <span>2 Gün Önce</span>
+                                </span>
+                            </div>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris ...</p>
+                        </a>
+                    </li>
+                    <li class="msg">
+                        <a href="#">
+                            <img src="img/demo/avatar/avatar5.jpg" alt="John's Avatar" />
+                            <div>
+                                <span class="msg-title">Sait</span>
+                                <span class="msg-time">
+                                    <i class="icon-time"></i>
+                                    <span>8:24 PM</span>
+                                </span>
+                            </div>
+                            <p>Duis aute irure dolor in reprehenderit in ...</p>
+                        </a>
+                    </li>
+                    <li class="more">
+                        <a href="#">Hepsine Bak</a>
+                    </li>
+                </ul>
+            </li>
+
+
+            @{if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+
 
                 <li class="user-profile">
                     <a data-toggle="dropdown" href="#" class="user-menu dropdown-toggle">
@@ -58,9 +116,10 @@
                         </li>
                     </ul>
                 </li>
-            </ul>
-        }
-        }
+
+            }
+            }
+        </ul>
     </div>
     <div class="container" id="main-container">
         @Html.Partial("_RightMenu")
