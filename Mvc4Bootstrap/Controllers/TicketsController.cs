@@ -60,7 +60,7 @@ namespace Mvc4Bootstrap.Controllers
         {
             int pageSize = 15;
             int pageNumber = page;
-            var customerticket = db.CustomerTicket.Include(c => c.Customer).OrderByDescending(r => r.CreatedDate);
+            var customerticket = db.CustomerTicket.Include(c => c.Customer).OrderByDescending(r => r.Id);
  
             var customerPaged = customerticket.ToPagedList(pageNumber, pageSize);
 
