@@ -2736,6 +2736,7 @@
     <Content Include="Views\Shared\_SubHeaderPage.cshtml" />
     <Content Include="Views\Shared\_LayoutBlue.cshtml" />
     <Content Include="Views\Customer\Copy of Index.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

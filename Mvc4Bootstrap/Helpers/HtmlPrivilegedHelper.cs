@@ -12,6 +12,7 @@ namespace A1fxCrm.Web.Helpers
     {
         public static bool IsAdmin(this HtmlHelper html)
         {
+            
             IPrincipal currentUser = HttpContext.Current.User;
             bool writeEnable = currentUser.IsInRole("admin");
             return writeEnable;
