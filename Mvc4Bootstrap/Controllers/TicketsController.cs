@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using A1fxCrm.Web.Models;
 using PagedList;
 using A1fxCrm.Web.Framework.Security.Attributes;
+using A1fxCrm.Web.Helpers;
 namespace Mvc4Bootstrap.Controllers
 {
     //[Authorization(Group = "", Name = "Cust")]
@@ -61,7 +62,10 @@ namespace Mvc4Bootstrap.Controllers
             int pageSize = 15;
             int pageNumber = page;
             var customerticket = db.CustomerTicket.Include(c => c.Customer).OrderByDescending(r => r.Id);
- 
+            string username = HtmlPrivilegedHelper.UserName();
+            if (!HtmlPrivilegedHelper.IsAdmin())
+                customerticket = db.CustomerTicket.Include(c => c.Customer).Include(c => c.Customer.User).Where(r => r.Customer.User.UserName == username).OrderByDescending(r => r.Id);
+
             var customerPaged = customerticket.ToPagedList(pageNumber, pageSize);
 
             foreach (var item in customerPaged)

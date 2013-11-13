@@ -9,6 +9,7 @@ using A1fxCrm.Web.Models;
 using PagedList;
 using System.Security.Principal;
 using A1fxCrm.Web.Framework.Security.Attributes;
+using A1fxCrm.Web.Helpers;
 
 namespace Mvc4Bootstrap.Controllers
 {
@@ -24,10 +25,13 @@ namespace Mvc4Bootstrap.Controllers
         public ActionResult Index(string search, int page = 1, int uid = 0, int cid = 0)
         {
 
-
+           
             int pageSize = 15;
             int pageNumber = page;
             var customer = db.Customer.Include(c => c.CustomerStatus).Include(c => c.User);
+            string username = HtmlPrivilegedHelper.UserName();
+            if (!HtmlPrivilegedHelper.IsAdmin())
+                customer = db.Customer.Include(c => c.CustomerStatus).Include(c => c.User).Where(r => r.User.UserName == username);
             if (uid > 0)
                 customer = customer.Where(r => r.UserId == uid);
 
@@ -143,7 +147,7 @@ namespace Mvc4Bootstrap.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.CustomerStatusId = new SelectList(db.CustomerStatus, "Id", "Name", customer.CustomerStatusId);
-            ViewBag.UserId = new SelectList(db.User, "Id", "ConfirmationToken", customer.UserId);
+            ViewBag.UserId = new SelectList(db.User, "Id", "Email", customer.UserId);
             return View(customer);
         }
 

@@ -17,5 +17,19 @@ namespace A1fxCrm.Web.Helpers
             bool writeEnable = currentUser.IsInRole("admin");
             return writeEnable;
         }
+
+        public static bool IsAdmin()
+        {
+
+            IPrincipal currentUser = HttpContext.Current.User;
+            bool writeEnable = currentUser.IsInRole("admin");
+            return writeEnable;
+        }
+        public static string UserName()
+        {
+
+            return HttpContext.Current.User.Identity.Name;
+          
+        }
     }
 }
