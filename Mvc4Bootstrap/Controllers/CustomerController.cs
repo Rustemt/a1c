@@ -55,6 +55,8 @@ namespace Mvc4Bootstrap.Controllers
         //
         // GET: /Customer/Details/5
 
+
+
         public ActionResult Details(int id, int? page)
         {
             Customer customer = db.Customer.Find(id);
@@ -64,6 +66,30 @@ namespace Mvc4Bootstrap.Controllers
             {
                 return HttpNotFound();
             }
+            return View(customer);
+        }
+        public ActionResult ReRegister()
+        {
+            var date = DateTime.Now.AddDays(-3) ;
+            var customer = db.Customer.Where(r => r.ReRegisterLastDateTime.Value> date  && r.ReRegisterChecked == false);
+
+            string username = HtmlPrivilegedHelper.UserName();
+            if (!HtmlPrivilegedHelper.IsAdmin())
+                customer = customer.Include(c => c.CustomerStatus).Include(c => c.User).Where(r => r.User.UserName == username);
+
+
+            
+            return View(customer);
+        }
+        public ActionResult ReRegisterList()
+        {
+            var date = DateTime.Now.AddDays(-3);
+            var customer = db.Customer.Where(r => r.ReRegisterLastDateTime.Value > date && r.ReRegisterChecked == false);
+
+            string username = HtmlPrivilegedHelper.UserName();
+            if (!HtmlPrivilegedHelper.IsAdmin())
+                customer = customer.Include(c => c.CustomerStatus).Include(c => c.User).Where(r => r.User.UserName == username);
+
             return View(customer);
         }
 
@@ -92,7 +118,7 @@ namespace Mvc4Bootstrap.Controllers
                 customer.CreateUserId = _user.Id;
                 customer.CreatedDate = DateTime.Now;
                 customer.UserId = _user.Id;
-
+                customer.ReRegisterLastDateTime = DateTime.Now;
                 db.Customer.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -142,6 +168,8 @@ namespace Mvc4Bootstrap.Controllers
                 _customer.UpdatedDate = DateTime.Now;
                 _customer.UpdateUserId = _user.Id;
                 _customer.CustomeCode = customer.CustomeCode;
+                _customer.ReRegisterLastDateTime = customer.ReRegisterLastDateTime;
+                _customer.ReRegisterChecked = customer.ReRegisterChecked;
                 db.Entry(_customer).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

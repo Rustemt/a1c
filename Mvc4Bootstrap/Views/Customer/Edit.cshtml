@@ -8,7 +8,7 @@
     <li><a href="#">Anasayfa</a> <span class="divider">/</span></li>
     <li class="active">Müşteri Düzenle</li>
 </ul>
- 
+
 <table id="newtable" class="table table-bordered">
 
     <tbody>
@@ -18,57 +18,83 @@
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true)
 
-    
+
             @Html.HiddenFor(model => model.Id)
             <tr>
                 <td>Müşteri Kodu: </td>
-                <td colspan="3">@Html.EditorFor(model => model.CustomeCode)
-                    @Html.ValidationMessageFor(model => model.CustomeCode)</td>
-               
-            </tr>
+                <td colspan="3">
+                    @Html.EditorFor(model => model.CustomeCode)
+                @Html.ValidationMessageFor(model => model.CustomeCode)
+            </td>
+            <td>E-Mail :</td>
+            <td>
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </td>
+        </tr>
             <tr>
                 <td>Adı: </td>
-                <td>@Html.EditorFor(model => model.FirstName)
-                    @Html.ValidationMessageFor(model => model.FirstName)</td>
-                <td>Soyadı:</td>
-                <td>@Html.EditorFor(model => model.LastName)
-                    @Html.ValidationMessageFor(model => model.LastName)</td>
-            </tr>
- 
-            <tr>
-                <td>E-Mail :</td>
-                <td>@Html.EditorFor(model => model.Email)
-                    @Html.ValidationMessageFor(model => model.Email)</td>
-                <td>Telefon :</td>
-                <td>@Html.EditorFor(model => model.Phone)
-                    @Html.ValidationMessageFor(model => model.Phone)</td>
-            </tr>
- 
+                <td>
+                    @Html.EditorFor(model => model.FirstName)
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </td>
+            <td>Soyadı:</td>
+            <td>
+                @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </td>
+    </tr>
+
             <tr>
                 <td>Gsm:</td>
-                <td>@Html.EditorFor(model => model.Mobile)
-                    @Html.ValidationMessageFor(model => model.Mobile)</td>
+                <td>
+                    @Html.EditorFor(model => model.Mobile)
+                    @Html.ValidationMessageFor(model => model.Mobile)
+                </td>
+                <td>Telefon :</td>
+                <td>
+                    @Html.EditorFor(model => model.Phone)
+                @Html.ValidationMessageFor(model => model.Phone)
+            </td>
+        </tr>
+
+            <tr>
+                <td>Temsilcisi :</td>
+                <td>
+                    @Html.DropDownList("UserId", String.Empty)
+                    @Html.ValidationMessageFor(model => model.UserId)
+                </td>
                 <td>Şehir :</td>
-                <td>@Html.EditorFor(model => model.City)
-                    @Html.ValidationMessageFor(model => model.City)</td>
-            </tr>
- 
+                <td>
+                    @Html.EditorFor(model => model.City)
+                @Html.ValidationMessageFor(model => model.City)
+            </td>
+        </tr>
+
             <tr>
                 <td>Kaynak : </td>
-                <td>@Html.EditorFor(model => model.Source)
-                    @Html.ValidationMessageFor(model => model.Source)</td>
-                <td>Referans : </td>
-                <td>@Html.EditorFor(model => model.Referance)
-                    @Html.ValidationMessageFor(model => model.Referance)</td>
-            </tr>  
+                <td>
+                    @Html.EditorFor(model => model.Source)
+                @Html.ValidationMessageFor(model => model.Source)
+            </td>
+            <td>Referans : </td>
+            <td>
+                @Html.EditorFor(model => model.Referance)
+            @Html.ValidationMessageFor(model => model.Referance)
+        </td>
+    </tr>
             <tr>
                 <td>Müşteri Kategori :</td>
-                <td>@Html.DropDownList("CustomerStatusId", String.Empty)
-                    @Html.ValidationMessageFor(model => model.CustomerStatusId)</td>
-                <td>Temsilcisi :</td>
-                <td>@Html.DropDownList("UserId", String.Empty)
-                    @Html.ValidationMessageFor(model => model.UserId)</td>
-            </tr>   
+                <td>
+                    @Html.DropDownList("CustomerStatusId", String.Empty)
+                @Html.ValidationMessageFor(model => model.CustomerStatusId)
+            </td>
+            <td>Tekrar Başvuru Kontrol edildi :</td>
+            <td>
+                @Html.CheckBoxFor(m => m.ReRegisterChecked)
+                @Html.ValidationMessageFor(model => model.ReRegisterChecked)
+            </td>
+        </tr>
             <tr>
                 <td colspan="4">
 

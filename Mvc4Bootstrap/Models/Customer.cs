@@ -35,6 +35,9 @@ namespace A1fxCrm.Web.Models
         public int CustomerStatusId { get; set; }
         public Nullable<int> UserId { get; set; }
         public string CustomeCode { get; set; }
+        public int ReRegisterCount { get; set; }
+        public Nullable<System.DateTime> ReRegisterLastDateTime { get; set; }
+        public bool ReRegisterChecked { get; set; }
     
         public virtual CustomerStatus CustomerStatus { get; set; }
         public virtual ICollection<CustomerTicket> CustomerTicket { get; set; }

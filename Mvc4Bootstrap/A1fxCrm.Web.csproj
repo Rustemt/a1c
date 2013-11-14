@@ -2738,6 +2738,8 @@
     <Content Include="Views\Shared\_LayoutBlue.cshtml" />
     <Content Include="Views\Customer\Copy of Index.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\Customer\ReRegister.cshtml" />
+    <Content Include="Views\Customer\ReRegisterList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

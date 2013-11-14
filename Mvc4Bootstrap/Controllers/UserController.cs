@@ -70,11 +70,11 @@ namespace Mvc4Bootstrap.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            User user = db.User.Find(id);
+            User user = db.User.Include(c => c.Role).Where(r => r.Id == id).FirstOrDefault();
             if (user.Role != null && user.Role.Count > 0)
                 ViewBag.Roles = new SelectList(db.Role, "Id", "DisplayName", user.Role.FirstOrDefault().Id);
             else
-                ViewBag.Roles = new SelectList(db.Role, "Id", "DisplayName","Seçiniz");
+                ViewBag.Roles = new SelectList(db.Role, "Id", "DisplayName", "Seçiniz");
 
             if (user == null)
             {
@@ -93,12 +93,19 @@ namespace Mvc4Bootstrap.Controllers
 
             if (ModelState.IsValid)
             {
-                var userIds = db.User.Where(r => r.Id == user.Id).FirstOrDefault();
+                int roleId = Convert.ToInt32(Request.Form["roleId"]);
+                var role = db.Role.Where(r => r.Id == roleId).FirstOrDefault();
+                var userIds = db.User.Include(c => c.Role).Where(r => r.Id == user.Id).FirstOrDefault();
                 userIds.FullName = user.FullName;
                 userIds.UserName = user.UserName;
                 userIds.IsAdministrator = user.IsAdministrator;
                 userIds.Status = user.Status;
                 userIds.Email = user.Email;
+                if (role != null)
+                {
+                    userIds.Role.Clear();
+                    userIds.Role.Add(role);
+                }
                 db.Entry(userIds).State = System.Data.Entity.EntityState.Modified;
 
                 db.SaveChanges();

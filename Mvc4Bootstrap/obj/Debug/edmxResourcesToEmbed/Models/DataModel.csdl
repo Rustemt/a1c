@@ -93,6 +93,9 @@
     <NavigationProperty Name="CustomerTicket" Relationship="A1fxCrmModel.FK_CustomerTicket_CustomerTicket" FromRole="Customer" ToRole="CustomerTicket" />
     <NavigationProperty Name="User" Relationship="A1fxCrmModel.FK_Customer_User" FromRole="Customer" ToRole="User" />
     <Property Type="String" Name="CustomeCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReRegisterCount" Type="Int32" Nullable="false" />
+    <Property Name="ReRegisterLastDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ReRegisterChecked" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="CustomerTicket">
     <Key>

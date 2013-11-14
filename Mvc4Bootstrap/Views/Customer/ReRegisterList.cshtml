@@ -1,5 +1,4 @@
-﻿@model PagedList.PagedList<A1fxCrm.Web.Models.Customer>
-@using PagedList.Mvc;
+﻿@model IEnumerable<A1fxCrm.Web.Models.Customer>
 
 @{
     ViewBag.Title = "Index";
@@ -53,47 +52,23 @@
 
 <div class="page-title">
     <div>
-        <h1><i class="icon-file-alt"></i>Müşterilerim</h1>
-        <h4>Crm Sistemi Müşteri Listesi</h4>
+        <h1><i class="icon-file-alt"></i>Müşterilerim Tekrar Başvurular</h1>
+        <h4>Crm Sistemi Tekrar Başvuran Müşteri Listesi</h4>
     </div>
 </div>
+@if (Model.Count() > 0)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                @*<div class="box-title">
+                        <h3><i class="icon-table"></i>Müşterilerim</h3>
+                        <div class="box-tool">
+                            <a data-action="collapse" href="#"><i class="icon-chevron-up"></i></a>
+                            <a data-action="close" href="#"><i class="icon-remove"></i></a>
+                        </div>
+                    </div>*@
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="box">
-            @*<div class="box-title">
-                    <h3><i class="icon-table"></i>Müşterilerim</h3>
-                    <div class="box-tool">
-                        <a data-action="collapse" href="#"><i class="icon-chevron-up"></i></a>
-                        <a data-action="close" href="#"><i class="icon-remove"></i></a>
-                    </div>
-                </div>*@
-            <div class="box-content">
-                <div class="btn-toolbar pull-right clearfix">
-                    <div class="btn-group">
-                        @{ if (Html.IsAdmin())
-                         {
-                            <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
-                                <i class="icon-filter"></i>&nbsp;Kullanıcılar
-                                <span class="caret"></span>
-                            </button>
-                            @Html.Action("ActiveUserList", "User")
-                         }}
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-filter"></i>&nbsp;Kategoriler
-                            <span class="caret"></span>
-                        </button>
-                        @Html.Action("StatusList", "Status")
-                    </div>
-                    <div class="btn-group">
-                        <a class="btn btn-circle show-tooltip" title="" href="/customer/create" data-original-title="Yeni Müşteri"><i class="icon-plus"></i></a>
-                    </div>
-
-                </div>
-                <br>
-                <br>
                 <div class="clearfix"></div>
                 <div class="table-responsive">
                     <div id="table1_wrapper" class="dataTables_wrapper form-inline" role="grid">
@@ -116,7 +91,6 @@
                                 </tr>
                             </thead>
 
-
                             <tbody role="alert" aria-live="polite" aria-relevant="all">
                                 @foreach (var item in Model)
                                 {
@@ -125,9 +99,9 @@
 
                                         <td class=" ">@Html.DisplayFor(modelItem => item.CustomeCode)</td>
                                         <td class="text-center ">@Html.DisplayFor(modelItem => item.FirstName)  @Html.DisplayFor(modelItem => item.LastName)</td>
-                                        <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-phone"></i></a></td>
-                                        <td class="text-center "><a href="deneme.html?call=55555555555" target="_blank"><i class="icon-mobile-phone"></i></a></td>
-                                        <td class="text-center "><a href="" target="_blank"><i class="icon-envelope"></i></a></td>
+                                        <td class="text-center "><a href="#" target="_blank"><i class="icon-phone"></i></a></td>
+                                        <td class="text-center "><a href="#" target="_blank"><i class="icon-mobile-phone"></i></a></td>
+                                        <td class="text-center "><a href="#" target="_blank"><i class="icon-envelope"></i></a></td>
                                         <td><span class="status-@item.CustomerStatusId"> @Html.DisplayFor(modelItem => item.CustomerStatus.Name)</span></td>
                                         <td class=" ">@Html.DisplayFor(modelItem => item.City)</td>
                                         <td class=" ">@Html.DisplayFor(modelItem => item.CreatedDate)</td>
@@ -144,8 +118,7 @@
                             </div>
                             <div class="col-xs-6">
                                 <div class="dataTables_paginate paging_bootstrap">
-                                    @Html.PagedListPager(Model, page => Url.Action("Index",
-                                        new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
                                 </div>
                             </div>
                         </div>
@@ -154,4 +127,15 @@
             </div>
         </div>
     </div>
-</div>
+
+}
+else
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                Yeni Tekrar Başvuru Bulunmamaktadır
+            </div>
+        </div>
+    </div>
+}

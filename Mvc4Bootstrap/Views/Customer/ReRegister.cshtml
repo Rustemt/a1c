@@ -1,0 +1,42 @@
+﻿@model IEnumerable<A1fxCrm.Web.Models.Customer>
+
+@{
+    Layout = null;
+}
+@if (Model.Count() > 0)
+{
+    <li class="hidden-xs">
+        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <i class="icon-envelope"></i>
+            <span class="badge badge-success">@Model.Count()</span>
+        </a>
+        <ul class="dropdown-navbar dropdown-menu">
+            <li class="nav-header">
+                <i class="icon-comments"></i>
+                @Model.Count() adet tekrar başvuru
+            </li>
+            @foreach (var item in Model)
+            {
+                <li class="msg">
+                    <a href="#">
+                        <img src="img/demo/avatar/avatar3.jpg" alt="@item.FirstName  @item.LastName" />
+                        <div>
+                            <span class="msg-title">@item.FirstName  @item.LastName </span>
+                            <span class="msg-time">
+                                <i class="icon-time"></i>
+                                @if (item.ReRegisterLastDateTime.HasValue)
+                                {
+                                    <span>@item.ReRegisterLastDateTime.Value.ToRelativeDate()</span>
+                                }
+                            </span>
+                        </div>
+                        <p>@item.Referance - @item.Source</p>
+                    </a>
+                </li>
+            }
+            <li class="more">
+                <a href="#">Hepsine Bak</a>
+            </li>
+        </ul>
+    </li>
+}

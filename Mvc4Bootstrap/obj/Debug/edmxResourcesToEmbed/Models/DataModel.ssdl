@@ -1,56 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="A1fxCrmModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="A1fxCrmModelStoreContainer">
-    <EntitySet Name="City" EntityType="A1fxCrmModel.Store.City" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Customer" EntityType="A1fxCrmModel.Store.Customer" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CustomerStatus" EntityType="A1fxCrmModel.Store.CustomerStatus" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CustomerTicket" EntityType="A1fxCrmModel.Store.CustomerTicket" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PermissionItem" EntityType="A1fxCrmModel.Store.PermissionItem" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Role" EntityType="A1fxCrmModel.Store.Role" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="RolePermissionItem" EntityType="A1fxCrmModel.Store.RolePermissionItem" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="User" EntityType="A1fxCrmModel.Store.User" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserRole" EntityType="A1fxCrmModel.Store.UserRole" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_Customer_CustomerStatus" Association="A1fxCrmModel.Store.FK_Customer_CustomerStatus">
-      <End Role="CustomerStatus" EntitySet="CustomerStatus" />
-      <End Role="Customer" EntitySet="Customer" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Customer_User" Association="A1fxCrmModel.Store.FK_Customer_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Customer" EntitySet="Customer" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CustomerTicket_CustomerTicket" Association="A1fxCrmModel.Store.FK_CustomerTicket_CustomerTicket">
-      <End Role="Customer" EntitySet="Customer" />
-      <End Role="CustomerTicket" EntitySet="CustomerTicket" />
-    </AssociationSet>
-    <AssociationSet Name="fk_RoleId" Association="A1fxCrmModel.Store.fk_RoleId">
-      <End Role="Role" EntitySet="Role" />
-      <End Role="UserRole" EntitySet="UserRole" />
-    </AssociationSet>
-    <AssociationSet Name="FK_RolePermissionItem_PermissionItem" Association="A1fxCrmModel.Store.FK_RolePermissionItem_PermissionItem">
-      <End Role="PermissionItem" EntitySet="PermissionItem" />
-      <End Role="RolePermissionItem" EntitySet="RolePermissionItem" />
-    </AssociationSet>
-    <AssociationSet Name="FK_RolePermissionItem_Role" Association="A1fxCrmModel.Store.FK_RolePermissionItem_Role">
-      <End Role="Role" EntitySet="Role" />
-      <End Role="RolePermissionItem" EntitySet="RolePermissionItem" />
-    </AssociationSet>
-    <AssociationSet Name="fk_UserId" Association="A1fxCrmModel.Store.fk_UserId">
-      <End Role="User" EntitySet="User" />
-      <End Role="UserRole" EntitySet="UserRole" />
-    </AssociationSet>
-  </EntityContainer>
+<Schema Namespace="A1fxCrmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="City">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Customer">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
     <Property Name="LastName" Type="nvarchar" MaxLength="50" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" />
@@ -66,19 +27,22 @@
     <Property Name="CustomerStatusId" Type="int" Nullable="false" />
     <Property Name="UserId" Type="int" />
     <Property Name="CustomeCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReRegisterCount" Type="int" Nullable="false" />
+    <Property Name="ReRegisterLastDateTime" Type="datetime" />
+    <Property Name="ReRegisterChecked" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="CustomerStatus">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="CustomerTicket">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Content" Type="text" />
     <Property Name="Title" Type="nvarchar" MaxLength="500" />
     <Property Name="CustomerId" Type="int" Nullable="false" />
@@ -88,8 +52,8 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="DisplayName" Type="nvarchar" MaxLength="50" />
     <Property Name="AreaName" Type="nvarchar" MaxLength="50" />
     <Property Name="Group" Type="nvarchar" MaxLength="50" />
@@ -99,8 +63,8 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
     <Property Name="DisplayName" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="RolePermissionItem">
@@ -115,7 +79,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CreateDate" Type="datetime" />
     <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
     <Property Name="IsConfirmed" Type="bit" />
@@ -164,8 +128,8 @@
     <Property Name="RoleId" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_Customer_CustomerStatus">
-    <End Role="CustomerStatus" Type="A1fxCrmModel.Store.CustomerStatus" Multiplicity="1" />
-    <End Role="Customer" Type="A1fxCrmModel.Store.Customer" Multiplicity="*" />
+    <End Role="CustomerStatus" Type="Self.CustomerStatus" Multiplicity="1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CustomerStatus">
         <PropertyRef Name="Id" />
@@ -176,8 +140,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Customer_User">
-    <End Role="User" Type="A1fxCrmModel.Store.User" Multiplicity="0..1" />
-    <End Role="Customer" Type="A1fxCrmModel.Store.Customer" Multiplicity="*" />
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="Id" />
@@ -188,8 +152,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_CustomerTicket_CustomerTicket">
-    <End Role="Customer" Type="A1fxCrmModel.Store.Customer" Multiplicity="1" />
-    <End Role="CustomerTicket" Type="A1fxCrmModel.Store.CustomerTicket" Multiplicity="*" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="CustomerTicket" Type="Self.CustomerTicket" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Customer">
         <PropertyRef Name="Id" />
@@ -200,8 +164,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_RoleId">
-    <End Role="Role" Type="A1fxCrmModel.Store.Role" Multiplicity="1" />
-    <End Role="UserRole" Type="A1fxCrmModel.Store.UserRole" Multiplicity="*" />
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Role">
         <PropertyRef Name="Id" />
@@ -212,8 +176,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_RolePermissionItem_PermissionItem">
-    <End Role="PermissionItem" Type="A1fxCrmModel.Store.PermissionItem" Multiplicity="1" />
-    <End Role="RolePermissionItem" Type="A1fxCrmModel.Store.RolePermissionItem" Multiplicity="*" />
+    <End Role="PermissionItem" Type="Self.PermissionItem" Multiplicity="1" />
+    <End Role="RolePermissionItem" Type="Self.RolePermissionItem" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PermissionItem">
         <PropertyRef Name="Id" />
@@ -224,8 +188,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_RolePermissionItem_Role">
-    <End Role="Role" Type="A1fxCrmModel.Store.Role" Multiplicity="1" />
-    <End Role="RolePermissionItem" Type="A1fxCrmModel.Store.RolePermissionItem" Multiplicity="*" />
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="RolePermissionItem" Type="Self.RolePermissionItem" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Role">
         <PropertyRef Name="Id" />
@@ -236,8 +200,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_UserId">
-    <End Role="User" Type="A1fxCrmModel.Store.User" Multiplicity="1" />
-    <End Role="UserRole" Type="A1fxCrmModel.Store.UserRole" Multiplicity="*" />
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="Id" />
@@ -247,4 +211,43 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityContainer Name="A1fxCrmModelStoreContainer">
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerStatus" EntityType="Self.CustomerStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerTicket" EntityType="Self.CustomerTicket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PermissionItem" EntityType="Self.PermissionItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RolePermissionItem" EntityType="Self.RolePermissionItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Customer_CustomerStatus" Association="Self.FK_Customer_CustomerStatus">
+      <End Role="CustomerStatus" EntitySet="CustomerStatus" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_User" Association="Self.FK_Customer_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerTicket_CustomerTicket" Association="Self.FK_CustomerTicket_CustomerTicket">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="CustomerTicket" EntitySet="CustomerTicket" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RoleId" Association="Self.fk_RoleId">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolePermissionItem_PermissionItem" Association="Self.FK_RolePermissionItem_PermissionItem">
+      <End Role="PermissionItem" EntitySet="PermissionItem" />
+      <End Role="RolePermissionItem" EntitySet="RolePermissionItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolePermissionItem_Role" Association="Self.FK_RolePermissionItem_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="RolePermissionItem" EntitySet="RolePermissionItem" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UserId" Association="Self.fk_UserId">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+  </EntityContainer>
 </Schema>
